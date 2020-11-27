@@ -13,6 +13,7 @@ const App: React.FC = () => {
 
   const [markedDates, setMarkedDates] = useState(() => {
     const date = new Date();
+    //TODO Make the month after style
     const days = ["1", "2", "3", "4", "5", "6", "7"];
     const listDate = days.map(
       (index) => `${date.getFullYear()}-${date.getMonth() + 2}-0${index}`
