@@ -1,6 +1,12 @@
 import { StyleSheet } from "react-native";
 
 const sCalendar = StyleSheet.create({
+  header: {
+    flexDirection: "row",
+    marginTop: 6,
+    alignItems: "flex-start",
+  },
+
   container: {
     paddingHorizontal: 32,
   },
@@ -31,6 +37,26 @@ const sCalendar = StyleSheet.create({
     borderWidth: 2,
     borderColor: "#9B98A6",
     borderRadius: 3,
+  },
+
+  todayDateText: {
+    marginBottom: 5,
+    color: "#FFF",
+  },
+
+  nextMonth: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    height: 48,
+    width: 48,
+    backgroundColor: "#1D1D1F",
+    borderRadius: 4,
+  },
+
+  nextMonthText: {
+    marginBottom: 5,
+    color: "#9B98A6",
   },
 });
 

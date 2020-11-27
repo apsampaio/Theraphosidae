@@ -6,11 +6,49 @@ import { Calendar, LocaleConfig } from "react-native-calendars";
 import sCalendar from "./styles/Calendar";
 
 const App: React.FC = () => {
-  const [todayDate, setTodayDate] = useState("");
+  const [todayDate, setTodayDate] = useState(() => {
+    const date = new Date();
+    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+  });
 
-  useEffect(() => {
-    setTodayDate(handleDate.minDate());
-  }, []);
+  const [markedDates, setMarkedDates] = useState(() => {
+    const date = new Date();
+    const days = ["1", "2", "3", "4", "5", "6", "7"];
+    const listDate = days.map(
+      (index) => `${date.getFullYear()}-${date.getMonth() + 2}-0${index}`
+    );
+    const markedObject = {
+      [todayDate]: {
+        customStyles: {
+          container: sCalendar.todayDate,
+          text: sCalendar.todayDateText,
+        },
+      },
+    };
+    listDate.map((date) =>
+      Object.defineProperty(markedObject, date, {
+        value: {
+          customStyles: {
+            container: sCalendar.nextMonth,
+            text: sCalendar.nextMonthText,
+          },
+        },
+        writable: false,
+      })
+    );
+    return markedObject;
+  });
+
+  const handleDate = {
+    minDate: () => {
+      const date = new Date();
+      return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+    },
+    maxDate: () => {
+      const date = new Date();
+      return `${date.getFullYear()}-${date.getMonth() + 1}-31`;
+    },
+  };
 
   LocaleConfig.locales["pt"] = {
     monthNames: [
@@ -33,17 +71,6 @@ const App: React.FC = () => {
 
   LocaleConfig.defaultLocale = "pt";
 
-  const handleDate = {
-    minDate: () => {
-      const date = new Date();
-      return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-    },
-    maxDate: () => {
-      const date = new Date();
-      return `${date.getFullYear()}-${date.getMonth() + 1}-31`;
-    },
-  };
-
   return (
     <View
       style={{
@@ -55,25 +82,17 @@ const App: React.FC = () => {
         minDate={handleDate.minDate()}
         maxDate={handleDate.maxDate()}
         markingType={"custom"}
-        markedDates={{
-          [todayDate]: {
-            customStyles: {
-              container: sCalendar.todayDate,
-              text: {
-                marginBottom: 5,
-                color: "#FFF",
-              },
-            },
-          },
-        }}
+        markedDates={markedDates}
         hideArrows={true}
         disableMonthChange={true}
-        style={{}}
         theme={{
           "stylesheet.calendar.main": {
             container: sCalendar.container,
             dayContainer: sCalendar.dayContainer,
             week: sCalendar.week,
+          },
+          "stylesheet.calendar.header": {
+            header: sCalendar.header,
           },
           calendarBackground: "#1D1D1F",
           textSectionTitleColor: "#FFF",
