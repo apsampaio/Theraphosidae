@@ -21,6 +21,17 @@ const sCalendar = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
   },
+
+  todayDate: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    height: 46,
+    width: 46,
+    borderWidth: 2,
+    borderColor: "#9B98A6",
+    borderRadius: 3,
+  },
 });
 
 export default sCalendar;
