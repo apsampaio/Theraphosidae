@@ -4,6 +4,7 @@ import { View } from "react-native";
 
 import CalendarComponent from "../../components/Calendar";
 import Separator from "../../components/Separator";
+import TaskCard from "../../components/TaskCard";
 
 const Home: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const Home: React.FC = () => {
     >
       <CalendarComponent />
       <Separator />
+      <TaskCard />
     </View>
   );
 };
