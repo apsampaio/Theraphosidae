@@ -7,7 +7,7 @@ const colors = {
     title: "#FFFFFF",
     icon: "#9B98A6",
     red: "#F9371C",
-    orange: "##F97C1C",
+    orange: "#F97C1C",
     yellow: "#F9C81C",
     green: "#41D0B6",
     purple: "#6562FC",
