@@ -8,7 +8,7 @@ const style = StyleSheet.create({
         height: 64,
         borderRadius: 4,
         backgroundColor: colors.box,
-        marginLeft: 32,
+        marginLeft: 16,
 
         alignItems: "center",
         flexDirection: "row",
