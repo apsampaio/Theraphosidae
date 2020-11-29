@@ -9,7 +9,9 @@ const style = StyleSheet.create({
         backgroundColor: colors.box,
         borderRadius: 4,
 
-        flexDirection: "row"
+        flexDirection: "row",
+
+        marginTop: 24,
     },
 
     status: {

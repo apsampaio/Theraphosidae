@@ -1,12 +1,12 @@
 import React from "react";
 
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 
 import style from "./style";
 
 const Card: React.FC = () => {
   return (
-    <View style={style.container}>
+    <TouchableOpacity style={style.container}>
       <View style={style.status}></View>
       <View>
         <View style={style.header}>
@@ -15,7 +15,7 @@ const Card: React.FC = () => {
         </View>
         <Text style={style.species}>Acanthoscurria Geniculata</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
