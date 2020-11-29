@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { Calendar, LocaleConfig } from "react-native-calendars";
+import colors from "../../styles/colors";
 import sCalendar from "./styles";
 
 const CalendarComponent: React.FC = () => {
@@ -16,25 +17,26 @@ const CalendarComponent: React.FC = () => {
     const listDate = days.map(
       (index) => `${date.getFullYear()}-${date.getMonth() + 2}-0${index}`
     );
+
+    const feed = {
+      key: "feed",
+      color: colors.orange,
+    };
+    const water = {
+      key: "water",
+      color: colors.blue,
+    };
+    const rehouse = {
+      key: "rehouse",
+      color: colors.red,
+    };
+
     const markedObject = {
       [todayDate]: {
-        customStyles: {
-          container: sCalendar.todayDate,
-          text: sCalendar.todayDateText,
-        },
+        dots: [feed, water, rehouse],
+        selected: true,
       },
     };
-    listDate.map((date) =>
-      Object.defineProperty(markedObject, date, {
-        value: {
-          customStyles: {
-            container: sCalendar.nextMonth,
-            text: sCalendar.nextMonthText,
-          },
-        },
-        writable: false,
-      })
-    );
     return markedObject;
   });
 
@@ -75,7 +77,7 @@ const CalendarComponent: React.FC = () => {
       <Calendar
         minDate={handleDate.minDate()}
         maxDate={handleDate.maxDate()}
-        markingType={"custom"}
+        markingType={"multi-dot"}
         markedDates={markedDates}
         hideArrows={true}
         disableMonthChange={true}
@@ -87,6 +89,11 @@ const CalendarComponent: React.FC = () => {
           },
           "stylesheet.calendar.header": {
             header: sCalendar.header,
+          },
+          "stylesheet.day.multiDot": {
+            dot: sCalendar.dot,
+            dotContainer: sCalendar.dotContainer,
+            selected: sCalendar.todayDate,
           },
           calendarBackground: "#1D1D1F",
           textSectionTitleColor: "#FFF",
