@@ -69,11 +69,6 @@ const sCalendar = StyleSheet.create({
     backgroundColor: "#1D1D1F",
     borderRadius: 4,
   },
-
-  nextMonthText: {
-    marginBottom: 5,
-    color: "#9B98A6",
-  },
 });
 
 export default sCalendar;
