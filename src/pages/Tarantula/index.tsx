@@ -27,7 +27,8 @@ const Tarantula: React.FC = () => {
           />
         </TouchableOpacity>
       </View>
-      <Input />
+      <Input placeholder={"Nome da Tarântula"} />
+      <Input placeholder={"Espécie da Tarântula"} />
     </View>
   );
 };

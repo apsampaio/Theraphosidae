@@ -5,7 +5,11 @@ import colors from "../../styles/colors";
 
 import style from "./style";
 
-const Input: React.FC = () => {
+interface InputDTO {
+  placeholder: string;
+}
+
+const Input: React.FC<InputDTO> = ({ placeholder }) => {
   const maxSize = 32;
 
   const [value, setValue] = useState("");
@@ -31,6 +35,8 @@ const Input: React.FC = () => {
         style={style.input}
         value={value}
         onChangeText={handleInputChange}
+        placeholder={placeholder}
+        placeholderTextColor={colors.box}
         onFocus={() => {
           setIsFocused(true);
         }}
