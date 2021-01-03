@@ -6,9 +6,17 @@ import colors from "../../styles/colors";
 import style from "./style";
 
 const Input: React.FC = () => {
-  const [value, setValue] = useState("Nome da Tarântula");
   const maxSize = 32;
+
+  const [value, setValue] = useState("");
+  const [counter, setCounter] = useState(() => maxSize - value.length);
   const [isFocused, setIsFocused] = useState(false);
+
+  const handleInputChange = (text: string) => {
+    if (text.length > 32) return;
+    setCounter(maxSize - text.length);
+    setValue(text);
+  };
 
   return (
     <View
@@ -22,7 +30,7 @@ const Input: React.FC = () => {
       <TextInput
         style={style.input}
         value={value}
-        onChangeText={(text) => setValue(text)}
+        onChangeText={handleInputChange}
         onFocus={() => {
           setIsFocused(true);
         }}
@@ -38,7 +46,7 @@ const Input: React.FC = () => {
           },
         ]}
       >
-        <Text style={style.counterText}>32</Text>
+        <Text style={style.counterText}>{counter}</Text>
       </View>
     </View>
   );
