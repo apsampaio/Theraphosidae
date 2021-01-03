@@ -1,6 +1,8 @@
 import React from "react";
-import { View, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity, TextInput } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
+
+import Input from "../../components/Input";
 
 import styles from "./styles";
 
@@ -19,12 +21,13 @@ const Tarantula: React.FC = () => {
         <TouchableOpacity>
           <Icon
             style={styles.TabHeaderButton}
-            name="menu"
+            name="list"
             color="#FFFFFF"
             size={24}
           />
         </TouchableOpacity>
       </View>
+      <Input />
     </View>
   );
 };

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Calendar, LocaleConfig } from "react-native-calendars";
 import colors from "../../styles/colors";
-import sCalendar from "./styles";
+import sCalendar from "./style";
 
 const CalendarComponent: React.FC = () => {
   const [todayDate, setTodayDate] = useState(() => {
