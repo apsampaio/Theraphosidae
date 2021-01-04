@@ -7,8 +7,11 @@ import {
   TextInput,
   ScrollView,
 } from "react-native";
+
 import Icon from "react-native-vector-icons/Feather";
 import Input from "../../components/Input";
+import Separator from "../../components/Separator";
+
 import colors from "../../styles/colors";
 import style from "./style";
 
@@ -119,6 +122,7 @@ const Tarantula: React.FC = () => {
           onChangeText={(text) => setNotes(text)}
         />
       </View>
+      <Separator />
     </ScrollView>
   );
 };
