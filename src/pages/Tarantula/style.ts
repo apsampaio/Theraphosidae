@@ -71,6 +71,30 @@ const styles = StyleSheet.create({
     color: colors.title,
     width: 150,
   },
+
+  notesTitle: {
+    fontSize: 16,
+    color: colors.title,
+    marginLeft: 16,
+    marginTop: 24,
+    marginBottom: 8,
+  },
+
+  notesContainer: {
+    padding: 5,
+    borderRadius: 4,
+    backgroundColor: colors.box,
+    marginHorizontal: 16,
+    marginBottom: 10,
+  },
+
+  notesTextArea: {
+    height: 160,
+    fontSize: 16,
+    color: colors.title,
+    justifyContent: "flex-start",
+    textAlignVertical: "top",
+  },
 });
 
 export default styles;

@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, TouchableOpacity, Text, Image } from "react-native";
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  Image,
+  TextInput,
+  ScrollView,
+} from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 import Input from "../../components/Input";
 import colors from "../../styles/colors";
@@ -7,9 +14,10 @@ import style from "./style";
 
 const Tarantula: React.FC = () => {
   const [gender, setGender] = useState("U");
+  const [notes, setNotes] = useState("");
 
   return (
-    <View style={style.container}>
+    <ScrollView style={style.container}>
       <View style={style.tabHeader}>
         <TouchableOpacity>
           <Icon
@@ -99,7 +107,19 @@ const Tarantula: React.FC = () => {
           <Text style={style.title}>Dias</Text>
         </TouchableOpacity>
       </View>
-    </View>
+      <Text style={style.notesTitle}>Anotações</Text>
+      <View style={style.notesContainer}>
+        <TextInput
+          style={style.notesTextArea}
+          underlineColorAndroid="transparent"
+          placeholder="Escreve suas anotações..."
+          placeholderTextColor={colors.icon}
+          multiline
+          numberOfLines={10}
+          onChangeText={(text) => setNotes(text)}
+        />
+      </View>
+    </ScrollView>
   );
 };
 
