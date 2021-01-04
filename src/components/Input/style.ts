@@ -5,7 +5,8 @@ import colors from "../../styles/colors";
 const style = StyleSheet.create({
   container: {
     height: 36,
-    marginHorizontal: 36,
+    marginHorizontal: 32,
+    marginTop: 32,
     borderBottomColor: colors.icon,
     borderBottomWidth: 1,
     flexDirection: "row",

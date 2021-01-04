@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  TabHeader: {
+  tabHeader: {
     flexDirection: "row",
     height: 56,
     backgroundColor: colors.boxForeground,
@@ -16,10 +16,38 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
 
-  TabHeaderButton: {
+  tabHeaderButton: {
     backgroundColor: colors.boxForeground,
     alignItems: "center",
     justifyContent: "center",
+  },
+
+  genderContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+
+    marginHorizontal: 32,
+    marginTop: 32,
+  },
+
+  genderTitle: {
+    fontSize: 16,
+    color: colors.title,
+  },
+
+  genderSelector: {
+    width: 16,
+    height: 16,
+    marginLeft: 16,
+    borderRadius: 50,
+
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  genderSelectedIcon: {
+    height: 10,
+    width: 10,
   },
 });
 
