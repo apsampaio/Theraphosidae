@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, TouchableOpacity, Text, Image } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 import Input from "../../components/Input";
@@ -6,6 +6,8 @@ import colors from "../../styles/colors";
 import style from "./style";
 
 const Tarantula: React.FC = () => {
+  const [gender, setGender] = useState("U");
+
   return (
     <View style={style.container}>
       <View style={style.tabHeader}>
@@ -32,27 +34,36 @@ const Tarantula: React.FC = () => {
         <Text style={style.genderTitle}>Gênero</Text>
         <TouchableOpacity
           style={[style.genderSelector, { backgroundColor: colors.pink }]}
+          onPress={() => setGender("F")}
         >
-          <Image
-            style={style.genderSelectedIcon}
-            source={require("../../assets/check.png")}
-          />
+          {gender === "F" && (
+            <Image
+              style={style.genderSelectedIcon}
+              source={require("../../assets/check.png")}
+            />
+          )}
         </TouchableOpacity>
         <TouchableOpacity
           style={[style.genderSelector, { backgroundColor: colors.oceanBlue }]}
+          onPress={() => setGender("M")}
         >
-          <Image
-            style={style.genderSelectedIcon}
-            source={require("../../assets/check.png")}
-          />
+          {gender === "M" && (
+            <Image
+              style={style.genderSelectedIcon}
+              source={require("../../assets/check.png")}
+            />
+          )}
         </TouchableOpacity>
         <TouchableOpacity
           style={[style.genderSelector, { backgroundColor: colors.purple }]}
+          onPress={() => setGender("U")}
         >
-          <Image
-            style={style.genderSelectedIcon}
-            source={require("../../assets/check.png")}
-          />
+          {gender === "U" && (
+            <Image
+              style={style.genderSelectedIcon}
+              source={require("../../assets/check.png")}
+            />
+          )}
         </TouchableOpacity>
       </View>
     </View>
