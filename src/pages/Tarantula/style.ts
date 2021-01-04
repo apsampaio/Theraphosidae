@@ -63,6 +63,13 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     backgroundColor: colors.box,
     borderRadius: 4,
+    marginLeft: 16,
+  },
+
+  selectorTitle: {
+    fontSize: 16,
+    color: colors.title,
+    width: 150,
   },
 });
 

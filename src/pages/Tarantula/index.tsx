@@ -68,34 +68,34 @@ const Tarantula: React.FC = () => {
       </View>
       <View style={style.selectorContainer}>
         <Text style={style.title}>Ecdises</Text>
-        <TouchableOpacity style={[style.selector, { marginLeft: 16 }]}>
+        <TouchableOpacity style={style.selector}>
           <Text style={style.title}>5</Text>
         </TouchableOpacity>
       </View>
       <View style={style.selectorContainer}>
-        <Text style={style.title}>Ciclo de alimentação</Text>
-        <TouchableOpacity style={[style.selector, { marginLeft: 16 }]}>
+        <Text style={style.selectorTitle}>Ciclo de alimentação</Text>
+        <TouchableOpacity style={style.selector}>
           <Text style={style.title}>5</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[style.selector, { marginLeft: 16 }]}>
+        <TouchableOpacity style={style.selector}>
           <Text style={style.title}>Dias</Text>
         </TouchableOpacity>
       </View>
       <View style={style.selectorContainer}>
-        <Text style={style.title}>Ciclo de irrigação</Text>
-        <TouchableOpacity style={[style.selector, { marginLeft: 16 }]}>
+        <Text style={style.selectorTitle}>Ciclo de irrigação</Text>
+        <TouchableOpacity style={style.selector}>
           <Text style={style.title}>5</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[style.selector, { marginLeft: 16 }]}>
+        <TouchableOpacity style={style.selector}>
           <Text style={style.title}>Dias</Text>
         </TouchableOpacity>
       </View>
       <View style={style.selectorContainer}>
-        <Text style={style.title}>Ciclo de limpeza</Text>
-        <TouchableOpacity style={[style.selector, { marginLeft: 16 }]}>
+        <Text style={style.selectorTitle}>Ciclo de limpeza</Text>
+        <TouchableOpacity style={style.selector}>
           <Text style={style.title}>5</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[style.selector, { marginLeft: 16 }]}>
+        <TouchableOpacity style={style.selector}>
           <Text style={style.title}>Dias</Text>
         </TouchableOpacity>
       </View>
