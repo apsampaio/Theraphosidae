@@ -31,7 +31,7 @@ const Tarantula: React.FC = () => {
       <Input placeholder={"Nome da Tarântula"} />
       <Input placeholder={"Espécie da Tarântula"} />
       <View style={style.genderContainer}>
-        <Text style={style.genderTitle}>Gênero</Text>
+        <Text style={style.title}>Gênero</Text>
         <TouchableOpacity
           style={[style.genderSelector, { backgroundColor: colors.pink }]}
           onPress={() => setGender("F")}
@@ -64,6 +64,39 @@ const Tarantula: React.FC = () => {
               source={require("../../assets/check.png")}
             />
           )}
+        </TouchableOpacity>
+      </View>
+      <View style={style.selectorContainer}>
+        <Text style={style.title}>Ecdises</Text>
+        <TouchableOpacity style={[style.selector, { marginLeft: 16 }]}>
+          <Text style={style.title}>5</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={style.selectorContainer}>
+        <Text style={style.title}>Ciclo de alimentação</Text>
+        <TouchableOpacity style={[style.selector, { marginLeft: 16 }]}>
+          <Text style={style.title}>5</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[style.selector, { marginLeft: 16 }]}>
+          <Text style={style.title}>Dias</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={style.selectorContainer}>
+        <Text style={style.title}>Ciclo de irrigação</Text>
+        <TouchableOpacity style={[style.selector, { marginLeft: 16 }]}>
+          <Text style={style.title}>5</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[style.selector, { marginLeft: 16 }]}>
+          <Text style={style.title}>Dias</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={style.selectorContainer}>
+        <Text style={style.title}>Ciclo de limpeza</Text>
+        <TouchableOpacity style={[style.selector, { marginLeft: 16 }]}>
+          <Text style={style.title}>5</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[style.selector, { marginLeft: 16 }]}>
+          <Text style={style.title}>Dias</Text>
         </TouchableOpacity>
       </View>
     </View>

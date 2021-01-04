@@ -22,17 +22,17 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 
+  title: {
+    fontSize: 16,
+    color: colors.title,
+  },
+
   genderContainer: {
     flexDirection: "row",
     alignItems: "center",
 
-    marginHorizontal: 32,
+    marginHorizontal: 16,
     marginTop: 32,
-  },
-
-  genderTitle: {
-    fontSize: 16,
-    color: colors.title,
   },
 
   genderSelector: {
@@ -48,6 +48,21 @@ const styles = StyleSheet.create({
   genderSelectedIcon: {
     height: 10,
     width: 10,
+  },
+
+  selectorContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+
+    marginHorizontal: 16,
+    marginTop: 24,
+  },
+
+  selector: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    backgroundColor: colors.box,
+    borderRadius: 4,
   },
 });
 
