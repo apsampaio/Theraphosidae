@@ -9,6 +9,22 @@ const style = StyleSheet.create({
     backgroundColor: colors.box,
 
     marginLeft: 8,
+
+    flexDirection: "row",
+  },
+
+  icon: {
+    width: 24,
+    height: 24,
+
+    backgroundColor: colors.orange,
+    borderRadius: 50,
+  },
+
+  title: {
+    color: colors.title,
+    fontSize: 16,
+    marginLeft: 8,
   },
 });
 
