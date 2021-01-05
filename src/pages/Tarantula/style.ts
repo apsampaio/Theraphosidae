@@ -85,7 +85,6 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: colors.box,
     marginHorizontal: 16,
-    marginBottom: 10,
   },
 
   notesTextArea: {
@@ -94,6 +93,17 @@ const styles = StyleSheet.create({
     color: colors.title,
     justifyContent: "flex-start",
     textAlignVertical: "top",
+  },
+
+  buttonList: {
+    marginBottom: 10,
+    marginLeft: 12,
+  },
+
+  buttonFooter: {
+    width: 32,
+    height: 64,
+    backgroundColor: colors.background,
   },
 });
 

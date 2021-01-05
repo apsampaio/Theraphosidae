@@ -6,11 +6,13 @@ import {
   Image,
   TextInput,
   ScrollView,
+  FlatList,
 } from "react-native";
 
 import Icon from "react-native-vector-icons/Feather";
 import Input from "../../components/Input";
 import Separator from "../../components/Separator";
+import ActionButton from "../../components/ActionButton";
 
 import colors from "../../styles/colors";
 import style from "./style";
@@ -18,6 +20,8 @@ import style from "./style";
 const Tarantula: React.FC = () => {
   const [gender, setGender] = useState("U");
   const [notes, setNotes] = useState("");
+
+  const data = ["0", "1", "2", "4", "5"];
 
   return (
     <ScrollView style={style.container}>
@@ -123,6 +127,15 @@ const Tarantula: React.FC = () => {
         />
       </View>
       <Separator />
+      <FlatList
+        horizontal
+        data={data}
+        renderItem={({ item }) => <ActionButton key={item} />}
+        keyExtractor={(item) => item}
+        contentContainerStyle={style.buttonList}
+        ListFooterComponent={() => <View style={style.buttonFooter} />}
+        showsHorizontalScrollIndicator={false}
+      />
     </ScrollView>
   );
 };
