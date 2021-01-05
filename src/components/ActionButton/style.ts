@@ -3,10 +3,10 @@ import colors from "../../styles/colors";
 
 const style = StyleSheet.create({
   container: {
-    width: 100,
-    height: 100,
-    backgroundColor: colors.box,
+    paddingHorizontal: 12,
+    paddingVertical: 12,
     borderRadius: 4,
+    backgroundColor: colors.box,
 
     marginLeft: 8,
   },

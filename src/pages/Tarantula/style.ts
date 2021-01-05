@@ -96,13 +96,12 @@ const styles = StyleSheet.create({
   },
 
   buttonList: {
-    marginBottom: 10,
-    marginLeft: 12,
+    marginBottom: 16,
+    marginLeft: 8,
   },
 
   buttonFooter: {
-    width: 32,
-    height: 64,
+    width: 24,
     backgroundColor: colors.background,
   },
 });
