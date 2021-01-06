@@ -1,6 +1,7 @@
 import React from "react";
-import { View, TouchableOpacity, Text } from "react-native";
 
+import { View, TouchableOpacity, Text } from "react-native";
+import HistoryCard from "../../components/HistoryCard";
 import Icon from "react-native-vector-icons/Feather";
 
 import style from "./style";
@@ -27,6 +28,7 @@ const History: React.FC = () => {
           />
         </TouchableOpacity>
       </View>
+      <HistoryCard />
     </View>
   );
 };
