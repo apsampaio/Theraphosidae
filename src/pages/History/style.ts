@@ -14,6 +14,8 @@ const style = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingHorizontal: 16,
+
+    marginBottom: 16,
   },
 
   tabHeaderTitle: {

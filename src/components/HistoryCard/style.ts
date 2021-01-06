@@ -9,7 +9,33 @@ const style = StyleSheet.create({
     borderColor: colors.icon,
     borderRadius: 4,
 
+    marginTop: 16,
     marginHorizontal: 12,
+
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+
+  icon: {
+    width: 32,
+    height: 32,
+    backgroundColor: colors.orange,
+    borderRadius: 50,
+
+    marginLeft: 12,
+    marginRight: 8,
+  },
+
+  description: {
+    color: colors.title,
+    fontSize: 16,
+  },
+
+  date: {
+    color: colors.title,
+    fontSize: 16,
+    marginRight: 16,
   },
 });
 
