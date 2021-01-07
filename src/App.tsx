@@ -7,8 +7,6 @@ import Routes from "./routes";
 
 import colors from "./styles/colors";
 
-// FIXME Scrollview not scrolling
-
 const App: React.FC = () => {
   return (
     <NavigationContainer>

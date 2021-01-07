@@ -9,6 +9,8 @@ import {
   FlatList,
 } from "react-native";
 
+import { useNavigation } from "@react-navigation/native";
+
 import Icon from "react-native-vector-icons/Feather";
 import Input from "../../components/Input";
 import Separator from "../../components/Separator";
@@ -18,15 +20,25 @@ import colors from "../../styles/colors";
 import style from "./style";
 
 const Tarantula: React.FC = () => {
+  const navigation = useNavigation();
+
   const [gender, setGender] = useState("U");
   const [notes, setNotes] = useState("");
 
   const data = ["0", "1", "2", "4", "5"];
 
+  const handleNavigateToHome = () => {
+    navigation.goBack();
+  };
+
+  const handleNavigateToHistory = () => {
+    navigation.navigate("History");
+  };
+
   return (
     <ScrollView style={style.container}>
       <View style={style.tabHeader}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleNavigateToHome}>
           <Icon
             style={style.tabHeaderButton}
             name="arrow-left"
@@ -34,7 +46,7 @@ const Tarantula: React.FC = () => {
             size={24}
           />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleNavigateToHistory}>
           <Icon
             style={style.tabHeaderButton}
             name="list"
