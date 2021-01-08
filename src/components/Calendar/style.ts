@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 import colors from "../../styles/colors";
 
@@ -49,6 +49,13 @@ const sCalendar = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+
+    borderColor: colors.purple,
+    borderWidth: 2,
+    borderRadius: 4,
+
+    width: Dimensions.get("window").width / 7 - 4,
+    height: 48,
   },
 
   todayDateText: {
