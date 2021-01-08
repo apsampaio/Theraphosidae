@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-
 import { Calendar, LocaleConfig } from "react-native-calendars";
+
+import { format, lastDayOfMonth } from "date-fns";
+
 import colors from "../../styles/colors";
 import sCalendar from "./style";
 
 const CalendarComponent: React.FC = () => {
   const [todayDate, setTodayDate] = useState(() => {
-    const date = new Date();
-    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+    return format(new Date(), "yyyy-MM-dd");
   });
 
   const [markedDates, setMarkedDates] = useState(() => {
@@ -35,12 +36,10 @@ const CalendarComponent: React.FC = () => {
 
   const handleDate = {
     minDate: () => {
-      const date = new Date();
-      return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+      return format(new Date(), "yyyy-MM-01");
     },
     maxDate: () => {
-      const date = new Date();
-      return `${date.getFullYear()}-${date.getMonth() + 2}-31`;
+      return format(lastDayOfMonth(new Date()), "yyyy-MM-dd");
     },
   };
 
@@ -88,6 +87,7 @@ const CalendarComponent: React.FC = () => {
             dotContainer: sCalendar.dotContainer,
             selected: sCalendar.todayDate,
           },
+
           calendarBackground: "#1D1D1F",
           textSectionTitleColor: "#FFF",
           todayTextColor: "#FFF",

@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+import colors from "../../styles/colors";
+
 const sCalendar = StyleSheet.create({
   dotContainer: {
     flexDirection: "row",
@@ -26,7 +28,7 @@ const sCalendar = StyleSheet.create({
     paddingHorizontal: 16,
   },
   dayContainer: {
-    backgroundColor: "#4D4B52",
+    backgroundColor: colors.box,
     margin: 1,
     borderRadius: 4,
     height: 48,
@@ -47,26 +49,11 @@ const sCalendar = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    height: 46,
-    width: 46,
-    borderWidth: 2,
-    borderColor: "#9B98A6",
-    borderRadius: 3,
   },
 
   todayDateText: {
     marginBottom: 5,
-    color: "#FFF",
-  },
-
-  nextMonth: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    height: 48,
-    width: 48,
-    backgroundColor: "#1D1D1F",
-    borderRadius: 4,
+    color: colors.title,
   },
 });
 
