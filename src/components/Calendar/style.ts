@@ -1,10 +1,9 @@
 import { StyleSheet } from "react-native";
 
 const sCalendar = StyleSheet.create({
-  
   dotContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around'
+    flexDirection: "row",
+    justifyContent: "space-around",
   },
 
   dot: {
@@ -14,9 +13,9 @@ const sCalendar = StyleSheet.create({
     marginLeft: 2,
     marginRight: 2,
     borderRadius: 4,
-    opacity: 0
+    opacity: 0,
   },
-  
+
   header: {
     flexDirection: "row",
     marginTop: 6,
@@ -24,7 +23,7 @@ const sCalendar = StyleSheet.create({
   },
 
   container: {
-    paddingHorizontal: 32,
+    paddingHorizontal: 16,
   },
   dayContainer: {
     backgroundColor: "#4D4B52",
