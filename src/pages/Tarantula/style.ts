@@ -99,11 +99,6 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     marginLeft: 8,
   },
-
-  buttonFooter: {
-    width: 24,
-    backgroundColor: colors.background,
-  },
 });
 
 export default styles;

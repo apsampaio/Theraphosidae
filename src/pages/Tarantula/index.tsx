@@ -14,6 +14,8 @@ import ArrowLeft from "../../assets/arrow-left.svg";
 import List from "../../assets/list.svg";
 import Check from "../../assets/check.svg";
 
+import Hungry from "../../assets/hungry.svg";
+
 import Input from "../../components/Input";
 import Separator from "../../components/Separator";
 import ActionButton from "../../components/ActionButton";
@@ -27,7 +29,9 @@ const Tarantula: React.FC = () => {
   const [gender, setGender] = useState("U");
   const [notes, setNotes] = useState("");
 
-  const data = ["0", "1", "2", "4", "5"];
+  const handleAction = () => {
+    console.log("Pressed!");
+  };
 
   const handleNavigateToHome = () => {
     navigation.goBack();
@@ -116,15 +120,11 @@ const Tarantula: React.FC = () => {
         />
       </View>
       <Separator />
-      <FlatList
-        horizontal
-        data={data}
-        renderItem={({ item }) => <ActionButton key={item} />}
-        keyExtractor={(item) => item}
-        contentContainerStyle={style.buttonList}
-        ListFooterComponent={() => <View style={style.buttonFooter} />}
-        showsHorizontalScrollIndicator={false}
-      />
+      <ScrollView style={style.buttonList} horizontal>
+        <ActionButton action={handleAction} color={colors.orange}>
+          <Hungry />
+        </ActionButton>
+      </ScrollView>
     </ScrollView>
   );
 };
