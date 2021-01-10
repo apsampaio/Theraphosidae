@@ -18,8 +18,6 @@ const style = StyleSheet.create({
   },
 
   icon: {
-    width: 32,
-    height: 32,
     backgroundColor: colors.orange,
     borderRadius: 50,
 
