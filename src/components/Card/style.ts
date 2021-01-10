@@ -19,6 +19,9 @@ const style = StyleSheet.create({
     height: 64,
     borderRadius: 4,
     backgroundColor: colors.green,
+
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   header: {

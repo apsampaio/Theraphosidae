@@ -54,7 +54,7 @@ const sCalendar = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 4,
 
-    width: Dimensions.get("window").width / 7 - 4,
+    width: Dimensions.get("window").width / 7 - 6,
     height: 48,
   },
 

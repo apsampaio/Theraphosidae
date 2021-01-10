@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
+import Icon from "../../assets/spider-icon.svg";
 
 import style from "./style";
 
@@ -14,7 +15,9 @@ const Card: React.FC = () => {
 
   return (
     <TouchableOpacity style={style.container} onPress={handleNavigateToProfile}>
-      <View style={style.status}></View>
+      <View style={style.status}>
+        <Icon key="teste" />
+      </View>
       <View>
         <View style={style.header}>
           <Text style={style.name}>Minha Tarântula Favorita</Text>
