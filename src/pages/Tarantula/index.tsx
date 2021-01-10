@@ -11,7 +11,9 @@ import {
 
 import { useNavigation } from "@react-navigation/native";
 
-import Icon from "react-native-vector-icons/Feather";
+import ArrowLeft from "../../assets/arrow-left.svg";
+import List from "../../assets/list.svg";
+
 import Input from "../../components/Input";
 import Separator from "../../components/Separator";
 import ActionButton from "../../components/ActionButton";
@@ -39,20 +41,10 @@ const Tarantula: React.FC = () => {
     <ScrollView style={style.container}>
       <View style={style.tabHeader}>
         <TouchableOpacity onPress={handleNavigateToHome}>
-          <Icon
-            style={style.tabHeaderButton}
-            name="arrow-left"
-            color="#FFFFFF"
-            size={24}
-          />
+          <ArrowLeft />
         </TouchableOpacity>
         <TouchableOpacity onPress={handleNavigateToHistory}>
-          <Icon
-            style={style.tabHeaderButton}
-            name="list"
-            color="#FFFFFF"
-            size={24}
-          />
+          <List />
         </TouchableOpacity>
       </View>
       <Input placeholder={"Nome da Tarântula"} />

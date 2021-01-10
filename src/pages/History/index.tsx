@@ -2,9 +2,11 @@ import React from "react";
 
 import { View, TouchableOpacity, Text, ScrollView } from "react-native";
 import HistoryCard from "../../components/HistoryCard";
-import Icon from "react-native-vector-icons/Feather";
 
 import { useNavigation } from "@react-navigation/native";
+
+import ArrowLeft from "../../assets/arrow-left.svg";
+import Trash from "../../assets/trash.svg";
 
 import style from "./style";
 
@@ -19,21 +21,11 @@ const History: React.FC = () => {
     <ScrollView style={style.container}>
       <View style={style.tabHeader}>
         <TouchableOpacity onPress={handleNavigateToTarantula}>
-          <Icon
-            style={style.tabHeaderButton}
-            name="arrow-left"
-            color="#FFFFFF"
-            size={24}
-          />
+          <ArrowLeft />
         </TouchableOpacity>
         <Text style={style.tabHeaderTitle}>Histórico</Text>
         <TouchableOpacity>
-          <Icon
-            style={style.tabHeaderButton}
-            name="trash"
-            color="#FFFFFF"
-            size={24}
-          />
+          <Trash />
         </TouchableOpacity>
       </View>
       <HistoryCard />
