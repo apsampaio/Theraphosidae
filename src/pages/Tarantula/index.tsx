@@ -15,6 +15,10 @@ import List from "../../assets/list.svg";
 import Check from "../../assets/check.svg";
 
 import Hungry from "../../assets/hungry.svg";
+import Water from "../../assets/water.svg";
+import Clear from "../../assets/clear.svg";
+import PreMolt from "../../assets/pre-molt.svg";
+import SpiderIcon from "../../assets/spider-icon.svg";
 
 import Input from "../../components/Input";
 import Separator from "../../components/Separator";
@@ -28,9 +32,16 @@ const Tarantula: React.FC = () => {
 
   const [gender, setGender] = useState("U");
   const [notes, setNotes] = useState("");
+  const [preMolt, setPreMolt] = useState(false);
 
   const handleAction = () => {
     console.log("Pressed!");
+  };
+
+  const togglePreMolt = () => {
+    setPreMolt((state) => {
+      return !state;
+    });
   };
 
   const handleNavigateToHome = () => {
@@ -124,6 +135,22 @@ const Tarantula: React.FC = () => {
         <ActionButton action={handleAction} color={colors.orange}>
           <Hungry />
         </ActionButton>
+        <ActionButton action={handleAction} color={colors.blue}>
+          <Water />
+        </ActionButton>
+        <ActionButton action={handleAction} color={colors.red}>
+          <Clear />
+        </ActionButton>
+        {!preMolt && (
+          <ActionButton action={togglePreMolt} color={colors.yellow}>
+            <PreMolt />
+          </ActionButton>
+        )}
+        {preMolt && (
+          <ActionButton action={togglePreMolt} color={colors.green}>
+            <SpiderIcon />
+          </ActionButton>
+        )}
       </ScrollView>
     </ScrollView>
   );

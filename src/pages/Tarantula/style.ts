@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
 
   buttonList: {
     marginBottom: 16,
-    marginLeft: 8,
+    // marginLeft: 8,
   },
 });
 
