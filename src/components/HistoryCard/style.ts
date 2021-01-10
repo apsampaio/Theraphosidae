@@ -23,6 +23,8 @@ const style = StyleSheet.create({
 
     marginLeft: 12,
     marginRight: 8,
+
+    padding: 6,
   },
 
   description: {

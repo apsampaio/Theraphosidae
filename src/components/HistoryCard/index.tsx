@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { View, Text } from "react-native";
 
@@ -18,19 +18,50 @@ interface HistoryCardDTO {
 }
 
 const HistoryCard: React.FC<HistoryCardDTO> = ({ title, date, id }) => {
-  const renderIcon = (id: number) => {
-    if (id === 0) return <Hungry width={24} height={24} style={style.icon} />;
-    if (id === 1) return <Water width={24} height={24} style={style.icon} />;
-    if (id === 2) return <Clear width={24} height={24} style={style.icon} />;
-    if (id === 3) return <PreMolt width={24} height={24} style={style.icon} />;
-    if (id === 4)
-      return <SpiderIcon width={24} height={24} style={style.icon} />;
+  const [iconColor, setIconColor] = useState("#FFF");
+
+  useEffect(() => {
+    if (id === 0) {
+      setIconColor(colors.orange);
+    }
+    if (id === 1) {
+      setIconColor(colors.blue);
+    }
+    if (id === 2) {
+      setIconColor(colors.red);
+    }
+    if (id === 3) {
+      setIconColor(colors.yellow);
+    }
+    if (id === 4) {
+      setIconColor(colors.green);
+    }
+  }, []);
+
+  const renderIcon = () => {
+    if (id === 0) {
+      return <Hungry width={16} height={16} />;
+    }
+    if (id === 1) {
+      return <Water width={16} height={16} />;
+    }
+    if (id === 2) {
+      return <Clear width={16} height={16} />;
+    }
+    if (id === 3) {
+      return <PreMolt width={16} height={16} />;
+    }
+    if (id === 4) {
+      return <SpiderIcon width={16} height={16} />;
+    }
   };
 
   return (
     <View style={style.container}>
       <View style={{ flexDirection: "row", alignItems: "center" }}>
-        {renderIcon(id)}
+        <View style={[style.icon, { backgroundColor: iconColor }]}>
+          {renderIcon()}
+        </View>
         <Text style={style.description}>{title}</Text>
       </View>
       <Text style={style.date}>{date}</Text>
