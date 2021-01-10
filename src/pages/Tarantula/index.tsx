@@ -3,7 +3,6 @@ import {
   View,
   TouchableOpacity,
   Text,
-  Image,
   TextInput,
   ScrollView,
   FlatList,
@@ -13,6 +12,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import ArrowLeft from "../../assets/arrow-left.svg";
 import List from "../../assets/list.svg";
+import Check from "../../assets/check.svg";
 
 import Input from "../../components/Input";
 import Separator from "../../components/Separator";
@@ -55,34 +55,19 @@ const Tarantula: React.FC = () => {
           style={[style.genderSelector, { backgroundColor: colors.pink }]}
           onPress={() => setGender("F")}
         >
-          {gender === "F" && (
-            <Image
-              style={style.genderSelectedIcon}
-              source={require("../../assets/check.png")}
-            />
-          )}
+          {gender === "F" && <Check width={10} height={10} />}
         </TouchableOpacity>
         <TouchableOpacity
           style={[style.genderSelector, { backgroundColor: colors.oceanBlue }]}
           onPress={() => setGender("M")}
         >
-          {gender === "M" && (
-            <Image
-              style={style.genderSelectedIcon}
-              source={require("../../assets/check.png")}
-            />
-          )}
+          {gender === "M" && <Check width={10} height={10} />}
         </TouchableOpacity>
         <TouchableOpacity
           style={[style.genderSelector, { backgroundColor: colors.purple }]}
           onPress={() => setGender("U")}
         >
-          {gender === "U" && (
-            <Image
-              style={style.genderSelectedIcon}
-              source={require("../../assets/check.png")}
-            />
-          )}
+          {gender === "U" && <Check width={10} height={10} />}
         </TouchableOpacity>
       </View>
       <View style={style.selectorContainer}>
