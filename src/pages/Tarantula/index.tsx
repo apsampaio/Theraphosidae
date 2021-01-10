@@ -5,7 +5,6 @@ import {
   Text,
   TextInput,
   ScrollView,
-  FlatList,
 } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
@@ -27,8 +26,14 @@ import ActionButton from "../../components/ActionButton";
 import colors from "../../styles/colors";
 import style from "./style";
 
+import { MoltPickerData } from "../../data/PickerData";
+
+//TODO FIND A GOOD PICKER OR BUILD OWN
+
 const Tarantula: React.FC = () => {
   const navigation = useNavigation();
+
+  const [molts, setMolts] = useState(0);
 
   const [gender, setGender] = useState("U");
   const [notes, setNotes] = useState("");
@@ -36,6 +41,10 @@ const Tarantula: React.FC = () => {
 
   const handleAction = () => {
     console.log("Pressed!");
+  };
+
+  const handleMoltChange = (value: number) => {
+    setMolts(value);
   };
 
   const togglePreMolt = () => {
@@ -88,7 +97,7 @@ const Tarantula: React.FC = () => {
       <View style={style.selectorContainer}>
         <Text style={style.title}>Ecdises</Text>
         <TouchableOpacity style={style.selector}>
-          <Text style={style.title}>5</Text>
+          <Text style={style.title}>{molts}</Text>
         </TouchableOpacity>
       </View>
       <View style={style.selectorContainer}>
@@ -125,6 +134,7 @@ const Tarantula: React.FC = () => {
           underlineColorAndroid="transparent"
           placeholder="Escreve suas anotações..."
           placeholderTextColor={colors.icon}
+          value={notes}
           multiline
           numberOfLines={10}
           onChangeText={(text) => setNotes(text)}
