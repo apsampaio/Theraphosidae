@@ -4,11 +4,18 @@ import ReactNativePickerModule from "react-native-picker-module";
 interface PickerDTO {
   items: string[];
   title: string;
+  show(): void;
 }
 
-const Picker: React.FC<PickerDTO> = ({ items, title }) => {
+const Picker: React.FC<PickerDTO> = ({ items, title, show }) => {
   const pickerRef = useRef<ReactNativePickerModule>(null);
   const [value, setValue] = useState("");
+
+  const handleShowPicker = () => {
+    const node = pickerRef.current;
+    node?.show();
+  };
+
   return (
     <>
       <ReactNativePickerModule

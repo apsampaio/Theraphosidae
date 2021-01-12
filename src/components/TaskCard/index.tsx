@@ -6,7 +6,7 @@ import { Text, View } from "react-native";
 import colors from "../../styles/colors";
 
 export interface TaskData {
-  task: "Alimentar" | "Irrigar" | "Realojar";
+  task: "Alimentar" | "Irrigar" | "Limpar";
   quantity: number;
   id: number;
 }
@@ -15,7 +15,7 @@ const TaskCard: React.FC<TaskData> = ({ task, quantity }) => {
   const TaskColor = {
     Alimentar: colors.orange,
     Irrigar: colors.blue,
-    Realojar: colors.red,
+    Limpar: colors.red,
   };
 
   return (

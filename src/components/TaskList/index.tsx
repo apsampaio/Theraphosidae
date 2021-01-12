@@ -18,7 +18,7 @@ const taskListData: TaskData[] = [
   },
   {
     id: 2,
-    task: "Realojar",
+    task: "Limpar",
     quantity: 1,
   },
 ];
@@ -34,7 +34,6 @@ const TaskList: React.FC = () => {
           <TaskCard task={item.task} quantity={item.quantity} id={item.id} />
         )}
         keyExtractor={(item) => item.id.toString()}
-        contentContainerStyle={style.taskList}
         ListFooterComponent={() => <View style={style.FooterItem} />}
         showsHorizontalScrollIndicator={false}
       />
