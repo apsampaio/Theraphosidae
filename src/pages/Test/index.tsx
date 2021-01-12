@@ -2,10 +2,28 @@ import React, { useRef, useState } from "react";
 import { Button, SafeAreaView, Text } from "react-native";
 import ReactNativePickerModule from "react-native-picker-module";
 
-const Test = () => {
+const Test: React.FC = () => {
   const pickerRef = useRef<ReactNativePickerModule>(null);
   const [value, setValue] = useState("");
-  const dataset_1 = ["1", "2", "Java", "Kotlin", "C++", "C#", "PHP"];
+  const dataset_1 = [
+    "1",
+    "2",
+    "Java",
+    "Kotlin",
+    "C++",
+    "C#",
+    "PHP",
+    "Kotlin",
+    "C++",
+    "C#",
+    "PHP",
+    "C#",
+    "PHP",
+    "Kotlin",
+    "C++",
+    "C#",
+    "PHP",
+  ];
   const dataset_2 = [
     {
       value: 101,
@@ -51,7 +69,6 @@ const Test = () => {
       </SafeAreaView>
       <ReactNativePickerModule
         pickerRef={pickerRef}
-        ref={pickerRef}
         value={value}
         title={"Select a language"}
         items={dataset_1}
