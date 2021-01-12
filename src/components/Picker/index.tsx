@@ -1,25 +1,23 @@
-import React, { useState, useRef } from "react";
+import React, { useState, forwardRef } from "react";
 import ReactNativePickerModule from "react-native-picker-module";
 
 interface PickerDTO {
   items: string[];
   title: string;
-  show(): void;
 }
 
-const Picker: React.FC<PickerDTO> = ({ items, title, show }) => {
-  const pickerRef = useRef<ReactNativePickerModule>(null);
-  const [value, setValue] = useState("");
+// FIXME Wait for issue answers
 
-  const handleShowPicker = () => {
-    const node = pickerRef.current;
-    node?.show();
-  };
+const Picker: React.ForwardRefRenderFunction<
+  ReactNativePickerModule,
+  PickerDTO
+> = ({ items, title }, ref) => {
+  const [value, setValue] = useState("");
 
   return (
     <>
       <ReactNativePickerModule
-        pickerRef={pickerRef}
+        pickerRef={ref}
         value={value}
         title={title}
         items={items}
@@ -50,4 +48,4 @@ const Picker: React.FC<PickerDTO> = ({ items, title, show }) => {
   );
 };
 
-export default Picker;
+export default forwardRef(Picker);

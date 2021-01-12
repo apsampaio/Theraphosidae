@@ -168,11 +168,6 @@ const Tarantula: React.FC = () => {
           )}
         </ScrollView>
       </ScrollView>
-      <Picker
-        items={PickerData}
-        title={"Selecione o numero de ecdises"}
-        show={() => {}}
-      />
     </>
   );
 };
