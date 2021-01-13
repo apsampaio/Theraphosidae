@@ -27,15 +27,24 @@ import ActionButton from "../../components/ActionButton";
 import colors from "../../styles/colors";
 import style from "./style";
 
-import { MoltPickerData } from "../../data/PickerData";
-
-//TODO FIND A GOOD PICKER OR BUILD OWN
+import {
+  MoltPickerData,
+  CicleDayPickerData,
+  CiclePickerData,
+} from "../../data/PickerData";
 
 const Tarantula: React.FC = () => {
   const navigation = useNavigation();
-  const moltRef = useRef<ReactNativePickerModule>(null);
 
+  // Molt Values
+  const moltRef = useRef<ReactNativePickerModule>(null);
   const [molts, setMolts] = useState("0");
+
+  // Feeding Values
+  const feedingDaysRef = useRef<ReactNativePickerModule>(null);
+  const feedingCicleRef = useRef<ReactNativePickerModule>(null);
+  const [feedingDays, setFeedingDays] = useState("1");
+  const [feedingCicle, setFeedingCicle] = useState("Dias");
 
   const [gender, setGender] = useState("U");
   const [notes, setNotes] = useState("");
@@ -104,11 +113,17 @@ const Tarantula: React.FC = () => {
         </View>
         <View style={style.selectorContainer}>
           <Text style={style.selectorTitle}>Ciclo de alimentação</Text>
-          <TouchableOpacity style={style.selector}>
-            <Text style={style.title}>5</Text>
+          <TouchableOpacity
+            style={style.selector}
+            onPress={() => showPicker(feedingDaysRef)}
+          >
+            <Text style={style.title}>{feedingDays}</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={style.selector}>
-            <Text style={style.title}>Dias</Text>
+          <TouchableOpacity
+            style={style.selector}
+            onPress={() => showPicker(feedingCicleRef)}
+          >
+            <Text style={style.title}>{feedingCicle}</Text>
           </TouchableOpacity>
         </View>
         <View style={style.selectorContainer}>
@@ -168,24 +183,26 @@ const Tarantula: React.FC = () => {
       <ReactNativePickerModule
         pickerRef={moltRef}
         value={molts}
-        title={"Selecione o numero de ecdises:"}
         items={MoltPickerData}
-        titleStyle={{ color: "white" }}
-        itemStyle={{ color: "white" }}
-        selectedColor="#FC0"
-        confirmButtonEnabledTextStyle={{ color: "white" }}
-        confirmButtonDisabledTextStyle={{ color: "grey" }}
-        cancelButtonTextStyle={{ color: "white" }}
-        confirmButtonStyle={{
-          backgroundColor: "rgba(0,0,0,1)",
-        }}
-        cancelButtonStyle={{
-          backgroundColor: "rgba(0,0,0,1)",
-        }}
-        contentContainerStyle={{
-          backgroundColor: "rgba(0,0,0,1)",
-        }}
+        title={"Selecione o numero de ecdises:"}
+        selectedColor={colors.orange}
         onValueChange={(value) => setMolts(value)}
+      />
+      <ReactNativePickerModule
+        pickerRef={feedingDaysRef}
+        value={feedingDays}
+        items={CicleDayPickerData}
+        title={"Selecione o dia:"}
+        selectedColor={colors.orange}
+        onValueChange={(value) => setFeedingDays(value)}
+      />
+      <ReactNativePickerModule
+        pickerRef={feedingCicleRef}
+        value={feedingCicle}
+        items={CiclePickerData}
+        title={"Selecione o ciclo:"}
+        selectedColor={colors.orange}
+        onValueChange={(value) => setFeedingCicle(value)}
       />
     </>
   );

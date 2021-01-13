@@ -21,3 +21,7 @@ export const MoltPickerData = [
   "19",
   "20",
 ];
+
+export const CicleDayPickerData = ["1", "2", "3", "4", "5", "6", "7"];
+
+export const CiclePickerData = ["Dias", "Semanas", "Meses"];
