@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, RefObject } from "react";
 import {
   View,
   TouchableOpacity,
@@ -8,6 +8,7 @@ import {
 } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
+import ReactNativePickerModule from "react-native-picker-module";
 
 import ArrowLeft from "../../assets/arrow-left.svg";
 import List from "../../assets/list.svg";
@@ -22,19 +23,19 @@ import SpiderIcon from "../../assets/spider-icon.svg";
 import Input from "../../components/Input";
 import Separator from "../../components/Separator";
 import ActionButton from "../../components/ActionButton";
-import Picker from "../../components/Picker";
 
 import colors from "../../styles/colors";
 import style from "./style";
 
-import { PickerData } from "../../data/PickerData";
+import { MoltPickerData } from "../../data/PickerData";
 
 //TODO FIND A GOOD PICKER OR BUILD OWN
 
 const Tarantula: React.FC = () => {
   const navigation = useNavigation();
+  const moltRef = useRef<ReactNativePickerModule>(null);
 
-  const [molts, setMolts] = useState(0);
+  const [molts, setMolts] = useState("0");
 
   const [gender, setGender] = useState("U");
   const [notes, setNotes] = useState("");
@@ -44,32 +45,25 @@ const Tarantula: React.FC = () => {
     console.log("Pressed!");
   };
 
-  const handleMoltChange = (value: number) => {
-    setMolts(value);
-  };
-
   const togglePreMolt = () => {
     setPreMolt((state) => {
       return !state;
     });
   };
 
-  const handleNavigateToHome = () => {
-    navigation.goBack();
-  };
-
-  const handleNavigateToHistory = () => {
-    navigation.navigate("History");
+  const showPicker = (ref: RefObject<ReactNativePickerModule>) => {
+    const node = ref.current;
+    node?.show();
   };
 
   return (
     <>
       <ScrollView style={style.container}>
         <View style={style.tabHeader}>
-          <TouchableOpacity onPress={handleNavigateToHome}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
             <ArrowLeft />
           </TouchableOpacity>
-          <TouchableOpacity onPress={handleNavigateToHistory}>
+          <TouchableOpacity onPress={() => navigation.navigate("History")}>
             <List />
           </TouchableOpacity>
         </View>
@@ -101,7 +95,10 @@ const Tarantula: React.FC = () => {
         </View>
         <View style={style.selectorContainer}>
           <Text style={style.title}>Ecdises</Text>
-          <TouchableOpacity style={style.selector}>
+          <TouchableOpacity
+            style={style.selector}
+            onPress={() => showPicker(moltRef)}
+          >
             <Text style={style.title}>{molts}</Text>
           </TouchableOpacity>
         </View>
@@ -168,6 +165,28 @@ const Tarantula: React.FC = () => {
           )}
         </ScrollView>
       </ScrollView>
+      <ReactNativePickerModule
+        pickerRef={moltRef}
+        value={molts}
+        title={"Selecione o numero de ecdises:"}
+        items={MoltPickerData}
+        titleStyle={{ color: "white" }}
+        itemStyle={{ color: "white" }}
+        selectedColor="#FC0"
+        confirmButtonEnabledTextStyle={{ color: "white" }}
+        confirmButtonDisabledTextStyle={{ color: "grey" }}
+        cancelButtonTextStyle={{ color: "white" }}
+        confirmButtonStyle={{
+          backgroundColor: "rgba(0,0,0,1)",
+        }}
+        cancelButtonStyle={{
+          backgroundColor: "rgba(0,0,0,1)",
+        }}
+        contentContainerStyle={{
+          backgroundColor: "rgba(0,0,0,1)",
+        }}
+        onValueChange={(value) => setMolts(value)}
+      />
     </>
   );
 };

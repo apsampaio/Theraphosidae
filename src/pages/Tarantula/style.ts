@@ -101,4 +101,6 @@ const styles = StyleSheet.create({
   },
 });
 
+export const pickerStyle = StyleSheet.create({});
+
 export default styles;
