@@ -1,4 +1,4 @@
-import React, { useState, useRef, RefObject } from "react";
+import React, { useState, useRef, RefObject, useCallback } from "react";
 import {
   View,
   TouchableOpacity,
@@ -40,19 +40,20 @@ const Tarantula: React.FC = () => {
   const moltRef = useRef<ReactNativePickerModule>(null);
   const [molts, setMolts] = useState("0");
 
-  const DaysPickerRef = useRef<ReactNativePickerModule>(null);
-  const CiclePickerRef = useRef<ReactNativePickerModule>(null);
-
+  const feedingDaysPickerRef = useRef<ReactNativePickerModule>(null);
   const [feedingDays, setFeedingDays] = useState("1");
+  const feedingCiclePickerRef = useRef<ReactNativePickerModule>(null);
   const [feedingCicle, setFeedingCicle] = useState("Dias");
 
+  const wateringDaysPickerRef = useRef<ReactNativePickerModule>(null);
   const [wateringDays, setWateringDays] = useState("1");
+  const wateringCiclePickerRef = useRef<ReactNativePickerModule>(null);
   const [wateringCicle, setWateringCicle] = useState("Dias");
 
+  const cleaningDaysPickerRef = useRef<ReactNativePickerModule>(null);
   const [cleaningDays, setCleaningDays] = useState("1");
+  const cleaningCiclePickerRef = useRef<ReactNativePickerModule>(null);
   const [cleaningCicle, setCleaningCicle] = useState("Dias");
-
-  const [selectedPicker, setSelectedPicker] = useState<null | string>(null);
 
   const [gender, setGender] = useState("U");
   const [notes, setNotes] = useState("");
@@ -68,17 +69,13 @@ const Tarantula: React.FC = () => {
     });
   };
 
-  const showPicker = (
-    ref: RefObject<ReactNativePickerModule>,
-    pickerName = "default"
-  ) => {
-    const node = ref.current;
-
-    if (pickerName === "feed") {
-      setSelectedPicker("feed");
-    }
-    return node?.show();
-  };
+  const handleShowPicker = useCallback(
+    (ref: RefObject<ReactNativePickerModule>) => {
+      const node = ref.current;
+      return node?.show();
+    },
+    []
+  );
 
   return (
     <>
@@ -121,7 +118,7 @@ const Tarantula: React.FC = () => {
           <Text style={style.title}>Ecdises</Text>
           <TouchableOpacity
             style={style.selector}
-            onPress={() => showPicker(moltRef)}
+            onPress={() => handleShowPicker(moltRef)}
           >
             <Text style={style.title}>{molts}</Text>
           </TouchableOpacity>
@@ -130,33 +127,45 @@ const Tarantula: React.FC = () => {
           <Text style={style.selectorTitle}>Ciclo de alimentação</Text>
           <TouchableOpacity
             style={style.selector}
-            onPress={() => showPicker(DaysPickerRef)}
+            onPress={() => handleShowPicker(feedingDaysPickerRef)}
           >
             <Text style={style.title}>{feedingDays}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={style.selector}
-            onPress={() => showPicker(CiclePickerRef)}
+            onPress={() => handleShowPicker(feedingCiclePickerRef)}
           >
             <Text style={style.title}>{feedingCicle}</Text>
           </TouchableOpacity>
         </View>
         <View style={style.selectorContainer}>
           <Text style={style.selectorTitle}>Ciclo de irrigação</Text>
-          <TouchableOpacity style={style.selector}>
-            <Text style={style.title}>5</Text>
+          <TouchableOpacity
+            style={style.selector}
+            onPress={() => handleShowPicker(wateringDaysPickerRef)}
+          >
+            <Text style={style.title}>{wateringDays}</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={style.selector}>
-            <Text style={style.title}>Dias</Text>
+          <TouchableOpacity
+            style={style.selector}
+            onPress={() => handleShowPicker(wateringCiclePickerRef)}
+          >
+            <Text style={style.title}>{wateringCicle}</Text>
           </TouchableOpacity>
         </View>
         <View style={style.selectorContainer}>
           <Text style={style.selectorTitle}>Ciclo de limpeza</Text>
-          <TouchableOpacity style={style.selector}>
-            <Text style={style.title}>5</Text>
+          <TouchableOpacity
+            style={style.selector}
+            onPress={() => handleShowPicker(cleaningDaysPickerRef)}
+          >
+            <Text style={style.title}>{cleaningDays}</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={style.selector}>
-            <Text style={style.title}>Dias</Text>
+          <TouchableOpacity
+            style={style.selector}
+            onPress={() => handleShowPicker(cleaningCiclePickerRef)}
+          >
+            <Text style={style.title}>{cleaningCicle}</Text>
           </TouchableOpacity>
         </View>
         <Text style={style.notesTitle}>Anotações</Text>
@@ -195,30 +204,64 @@ const Tarantula: React.FC = () => {
           )}
         </ScrollView>
       </ScrollView>
-      <ReactNativePickerModule
-        pickerRef={moltRef}
-        value={molts}
-        items={MoltPickerData}
-        title={"Selecione o numero de ecdises:"}
-        selectedColor={colors.orange}
-        onValueChange={(value) => setMolts(value)}
-      />
-      <ReactNativePickerModule
-        pickerRef={DaysPickerRef}
-        value={feedingDays}
-        items={CicleDayPickerData}
-        title={"Selecione o dia:"}
-        selectedColor={colors.orange}
-        onValueChange={(value) => setFeedingDays(value)}
-      />
-      <ReactNativePickerModule
-        pickerRef={CiclePickerRef}
-        value={feedingCicle}
-        items={CiclePickerData}
-        title={"Selecione o ciclo:"}
-        selectedColor={colors.orange}
-        onValueChange={(value) => setFeedingCicle(value)}
-      />
+      <>
+        <ReactNativePickerModule
+          pickerRef={moltRef}
+          value={molts}
+          items={MoltPickerData}
+          title={"Selecione o numero de ecdises:"}
+          selectedColor={colors.orange}
+          onValueChange={setMolts}
+        />
+        <ReactNativePickerModule
+          pickerRef={feedingDaysPickerRef}
+          value={feedingDays}
+          items={CicleDayPickerData}
+          title={"Selecione o dia:"}
+          selectedColor={colors.orange}
+          onValueChange={setFeedingDays}
+        />
+        <ReactNativePickerModule
+          pickerRef={feedingCiclePickerRef}
+          value={feedingCicle}
+          items={CiclePickerData}
+          title={"Selecione o ciclo:"}
+          selectedColor={colors.orange}
+          onValueChange={setFeedingCicle}
+        />
+        <ReactNativePickerModule
+          pickerRef={wateringDaysPickerRef}
+          value={wateringDays}
+          items={CicleDayPickerData}
+          title={"Selecione o dia:"}
+          selectedColor={colors.orange}
+          onValueChange={setWateringDays}
+        />
+        <ReactNativePickerModule
+          pickerRef={wateringCiclePickerRef}
+          value={wateringCicle}
+          items={CiclePickerData}
+          title={"Selecione o ciclo:"}
+          selectedColor={colors.orange}
+          onValueChange={setWateringCicle}
+        />
+        <ReactNativePickerModule
+          pickerRef={cleaningDaysPickerRef}
+          value={cleaningDays}
+          items={CicleDayPickerData}
+          title={"Selecione o dia:"}
+          selectedColor={colors.orange}
+          onValueChange={setCleaningDays}
+        />
+        <ReactNativePickerModule
+          pickerRef={cleaningCiclePickerRef}
+          value={cleaningCicle}
+          items={CiclePickerData}
+          title={"Selecione o ciclo:"}
+          selectedColor={colors.orange}
+          onValueChange={setCleaningCicle}
+        />
+      </>
     </>
   );
 };
