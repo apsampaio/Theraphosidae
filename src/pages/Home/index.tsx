@@ -9,6 +9,8 @@ import Separator from "../../components/Separator";
 import TaskList from "../../components/TaskList";
 import CardList from "../../components/CardList";
 
+import MenuButton from "../../components/MenuButton";
+
 const Home: React.FC = () => {
   return (
     <ScrollView style={style.container} showsVerticalScrollIndicator={false}>
