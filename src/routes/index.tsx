@@ -1,5 +1,5 @@
 import React from "react";
-import AppRoutes from "./app.routes";
+import AppRoutes from "./drawer.routes";
 
 const Routes: React.FC = () => {
   return <AppRoutes />;
