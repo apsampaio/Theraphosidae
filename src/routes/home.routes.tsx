@@ -9,7 +9,7 @@ import Home from "../pages/Home";
 import Tarantula from "../pages/Tarantula";
 import History from "../pages/History";
 
-const HomeScreenRoutes: React.FC = () => {
+const HomeRoutes: React.FC = () => {
   return (
     <App.Navigator
       screenOptions={{
@@ -25,4 +25,4 @@ const HomeScreenRoutes: React.FC = () => {
   );
 };
 
-export default HomeScreenRoutes;
+export default HomeRoutes;

@@ -3,7 +3,7 @@ import React from "react";
 import { ScrollView } from "react-native";
 import style from "./style";
 
-const Menu: React.FC = () => {
+const Toca: React.FC = () => {
   return (
     <ScrollView
       style={style.container}
@@ -12,4 +12,4 @@ const Menu: React.FC = () => {
   );
 };
 
-export default Menu;
+export default Toca;

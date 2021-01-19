@@ -8,7 +8,9 @@ const App = createStackNavigator();
 
 import colors from "../styles/colors";
 
-import HomeScreenRoutes from "./homescreen.routes";
+import HomeRoutes from "./home.routes";
+import MenuRoutes from "./menu.routes";
+import TocaRoutes from "./toca.routes";
 
 const AppRoutes: React.FC = () => {
   return (
@@ -17,7 +19,9 @@ const AppRoutes: React.FC = () => {
         backgroundColor: colors.boxForeground,
       }}
     >
-      <Drawer.Screen name="Início" component={HomeScreenRoutes} />
+      <Drawer.Screen name="Início" component={HomeRoutes} />
+      <Drawer.Screen name="Menu" component={MenuRoutes} />
+      <Drawer.Screen name="Toca das Tarantulas" component={TocaRoutes} />
     </Drawer.Navigator>
   );
 };
