@@ -1,18 +1,31 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 
-import HeartIcon from "../../assets/heart.svg";
-
 import style from "./style";
 
 interface MenuButton {
   title: string;
   description: string;
+  navigateTo: string;
+  navigation: Navigation;
 }
 
-const MenuButton: React.FC<MenuButton> = ({ title, description, children }) => {
+interface Navigation {
+  navigate: (screen: string) => {};
+}
+
+const MenuButton: React.FC<MenuButton> = ({
+  title,
+  description,
+  navigateTo,
+  navigation,
+  children,
+}) => {
   return (
-    <TouchableOpacity style={style.container}>
+    <TouchableOpacity
+      style={style.container}
+      onPress={() => navigation.navigate(navigateTo)}
+    >
       {children}
       <View>
         <Text style={style.title}>{title}</Text>
