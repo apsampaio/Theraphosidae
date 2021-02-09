@@ -18,6 +18,9 @@ const AppRoutes: React.FC = () => {
     <Drawer.Navigator
       drawerStyle={drawerStyle}
       drawerContentOptions={drawerContentStyle}
+      gestureHandlerProps={{
+        enabled: false,
+      }}
     >
       <Drawer.Screen
         options={{
