@@ -1,4 +1,10 @@
-import React, { useState, useRef, RefObject, useCallback } from "react";
+import React, {
+  useState,
+  useRef,
+  RefObject,
+  useCallback,
+  useEffect,
+} from "react";
 import {
   View,
   TouchableOpacity,
@@ -7,7 +13,7 @@ import {
   ScrollView,
 } from "react-native";
 
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import ReactNativePickerModule from "react-native-picker-module";
 
 import ArrowLeft from "../../assets/arrow-left.svg";
@@ -32,6 +38,8 @@ import {
   CicleDayPickerData,
   CiclePickerData,
 } from "../../data/PickerData";
+
+import { useDrawer } from "../../hooks/Drawer";
 
 const Tarantula: React.FC = () => {
   const navigation = useNavigation();

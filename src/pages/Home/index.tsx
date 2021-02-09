@@ -8,7 +8,17 @@ import Separator from "../../components/Separator";
 import TaskList from "../../components/TaskList";
 import CardList from "../../components/CardList";
 
+import { useFocusEffect } from "@react-navigation/native";
+import { useDrawer } from "../../hooks/Drawer";
+
 const Home: React.FC = () => {
+  const { releaseDrawer, lockDrawer } = useDrawer();
+
+  useFocusEffect(() => {
+    releaseDrawer();
+    return () => lockDrawer();
+  });
+
   return (
     <ScrollView style={style.container} showsVerticalScrollIndicator={false}>
       <CalendarComponent />

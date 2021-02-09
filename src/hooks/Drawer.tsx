@@ -2,24 +2,24 @@ import React, { createContext, useCallback, useState, useContext } from "react";
 
 interface DrawerContextData {
   drawerState: boolean;
-  setCurrentPage(pageName: string): void;
+  lockDrawer(): void;
+  releaseDrawer(): void;
 }
 
 const DrawerContext = createContext<DrawerContextData>({} as DrawerContextData);
 
 export const DrawerProvider: React.FC = ({ children }) => {
-  const [drawerState, setDrawerState] = useState(false);
+  const [drawerState, setDrawerState] = useState(true);
 
-  const setCurrentPage = useCallback((pageName: string): void => {
-    if (pageName === "Home") {
-      setDrawerState(true);
-    } else {
-      setDrawerState(false);
-    }
+  const lockDrawer = useCallback(() => {
+    setDrawerState(false);
+  }, []);
+  const releaseDrawer = useCallback(() => {
+    setDrawerState(true);
   }, []);
 
   return (
-    <DrawerContext.Provider value={{ drawerState, setCurrentPage }}>
+    <DrawerContext.Provider value={{ drawerState, releaseDrawer, lockDrawer }}>
       {children}
     </DrawerContext.Provider>
   );

@@ -13,13 +13,17 @@ import Mail from "../assets/mail.svg";
 import Bell from "../assets/bell.svg";
 import Calendar from "../assets/calendar.svg";
 
+import { useDrawer } from "../hooks/Drawer";
+
 const AppRoutes: React.FC = () => {
+  const { drawerState } = useDrawer();
+
   return (
     <Drawer.Navigator
       drawerStyle={drawerStyle}
       drawerContentOptions={drawerContentStyle}
       gestureHandlerProps={{
-        enabled: false,
+        enabled: drawerState,
       }}
     >
       <Drawer.Screen
