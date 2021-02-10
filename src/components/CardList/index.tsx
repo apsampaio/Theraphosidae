@@ -13,7 +13,7 @@ const CardList: React.FC = () => {
       <View style={style.header}>
         <Text style={style.title}>Suas tarântulas</Text>
         <TouchableOpacity>
-          <Text style={style.button}>+ Adicionar tarântula</Text>
+          <Text style={style.button}>Adicionar Tarântula +</Text>
         </TouchableOpacity>
       </View>
       {cardListData.map((card) => (

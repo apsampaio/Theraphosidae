@@ -11,18 +11,22 @@ const style = StyleSheet.create({
     color: colors.title,
     fontSize: 16,
     lineHeight: 19,
-    marginBottom: -8,
   },
 
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
     paddingHorizontal: 16,
   },
 
   button: {
     fontSize: 16,
     color: colors.purple,
+    borderWidth: 1,
+    borderColor: colors.purple,
+    borderRadius: 4,
+    padding: 4,
   },
 });
 
