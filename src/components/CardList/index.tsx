@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FlatList, View, Text } from "react-native";
+import { TouchableOpacity, View, Text } from "react-native";
 import Card from "../../components/Card";
 
 import style from "./style";
@@ -10,7 +10,12 @@ const cardListData = ["1", "2", "3", "4", "5"];
 const CardList: React.FC = () => {
   return (
     <View style={style.container}>
-      <Text style={style.title}>Suas tarântulas</Text>
+      <View style={style.header}>
+        <Text style={style.title}>Suas tarântulas</Text>
+        <TouchableOpacity>
+          <Text style={style.button}>+ Adicionar tarântula</Text>
+        </TouchableOpacity>
+      </View>
       {cardListData.map((card) => (
         <Card key={card} />
       ))}

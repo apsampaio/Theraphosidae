@@ -11,9 +11,18 @@ const style = StyleSheet.create({
     color: colors.title,
     fontSize: 16,
     lineHeight: 19,
-
-    marginLeft: 16,
     marginBottom: -8,
+  },
+
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 16,
+  },
+
+  button: {
+    fontSize: 16,
+    color: colors.purple,
   },
 });
 
