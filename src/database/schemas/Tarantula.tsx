@@ -1,25 +1,21 @@
-export default class Tarantula {
-  name: string;
-  species: string;
-  gender: "F" | "U" | "M";
-  feeding_day: number;
-  feeding_cicle: "Dias" | "Semanas" | "Meses";
-  watering_day: number;
-  watering_cicle: "Dias" | "Semanas" | "Meses";
-  cleaning_day: number;
-  cleaning_cicle: "Dias" | "Semanas" | "Meses";
-  notes: string;
+import { ObjectSchema } from "realm";
 
-  constructor() {
-    this.name = "";
-    this.species = "";
-    this.gender = "U";
-    this.feeding_day = 1;
-    this.feeding_cicle = "Dias";
-    this.watering_day = 1;
-    this.watering_cicle = "Dias";
-    this.cleaning_day = 1;
-    this.cleaning_cicle = "Dias";
-    this.notes = "";
-  }
+export default class TarantulaSchema {
+  static schema: ObjectSchema = {
+    name: "Tarantula",
+    primaryKey: "id",
+    properties: {
+      id: { type: "int", indexed: true },
+      name: "string",
+      species: "string",
+      gender: "string",
+      feeding_day: "int",
+      feeding_cicle: "string",
+      watering_day: "int",
+      watering_cicle: "string",
+      cleaning_day: "int",
+      cleaning_cicle: "string",
+      notes: "string",
+    },
+  };
 }
