@@ -5,9 +5,11 @@ import {
   Text,
   TextInput,
   ScrollView,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import ReactNativePickerModule from "react-native-picker-module";
 
 import ArrowLeft from "../../assets/arrow-left.svg";
@@ -73,141 +75,147 @@ const Tarantula: React.FC = () => {
 
   return (
     <>
-      <ScrollView style={style.container}>
-        <View style={style.tabHeader}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <ArrowLeft />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate("History")}>
-            <List />
-          </TouchableOpacity>
-        </View>
-        <Input placeholder={"Nome da Tarântula"} />
-        <Input placeholder={"Espécie da Tarântula"} />
-        <View style={style.genderContainer}>
-          <Text style={style.title}>Gênero</Text>
-          <TouchableOpacity
-            style={[style.genderSelector, { backgroundColor: colors.pink }]}
-            onPress={() => setGender("F")}
-          >
-            {gender === "F" && <Check width={10} height={10} />}
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[
-              style.genderSelector,
-              { backgroundColor: colors.oceanBlue },
-            ]}
-            onPress={() => setGender("M")}
-          >
-            {gender === "M" && <Check width={10} height={10} />}
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[style.genderSelector, { backgroundColor: colors.purple }]}
-            onPress={() => setGender("U")}
-          >
-            {gender === "U" && <Check width={10} height={10} />}
-          </TouchableOpacity>
-        </View>
-        <View style={style.selectorContainer}>
-          <Text style={style.title}>Ecdises</Text>
-          <TouchableOpacity
-            style={style.selector}
-            onPress={() => handleShowPicker(moltRef)}
-          >
-            <Text style={style.title}>{molts}</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={style.selectorContainer}>
-          <Text style={style.selectorTitle}>Ciclo de alimentação</Text>
-          <TouchableOpacity
-            style={style.selector}
-            onPress={() => handleShowPicker(feedingDaysPickerRef)}
-          >
-            <Text style={style.title}>{feedingDays}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={style.selector}
-            onPress={() => handleShowPicker(feedingCiclePickerRef)}
-          >
-            <Text style={style.title}>{feedingCicle}</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={style.selectorContainer}>
-          <Text style={style.selectorTitle}>Ciclo de irrigação</Text>
-          <TouchableOpacity
-            style={style.selector}
-            onPress={() => handleShowPicker(wateringDaysPickerRef)}
-          >
-            <Text style={style.title}>{wateringDays}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={style.selector}
-            onPress={() => handleShowPicker(wateringCiclePickerRef)}
-          >
-            <Text style={style.title}>{wateringCicle}</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={style.selectorContainer}>
-          <Text style={style.selectorTitle}>Ciclo de limpeza</Text>
-          <TouchableOpacity
-            style={style.selector}
-            onPress={() => handleShowPicker(cleaningDaysPickerRef)}
-          >
-            <Text style={style.title}>{cleaningDays}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={style.selector}
-            onPress={() => handleShowPicker(cleaningCiclePickerRef)}
-          >
-            <Text style={style.title}>{cleaningCicle}</Text>
-          </TouchableOpacity>
-        </View>
-        <Text style={style.notesTitle}>Anotações</Text>
-        <View style={style.notesContainer}>
-          <TextInput
-            style={style.notesTextArea}
-            underlineColorAndroid="transparent"
-            placeholder="Escreve suas anotações..."
-            placeholderTextColor={colors.icon}
-            value={notes}
-            multiline
-            numberOfLines={10}
-            onChangeText={(text) => setNotes(text)}
-          />
-        </View>
-        <Separator />
-        <ScrollView style={style.buttonList} horizontal>
-          <ActionButton
-            action={handleAction}
-            color={colors.orange}
-            Icon={require("../../assets/hungry.svg").default}
-          />
-          <ActionButton
-            action={handleAction}
-            color={colors.blue}
-            Icon={require("../../assets/water.svg").default}
-          />
-          <ActionButton
-            action={handleAction}
-            color={colors.red}
-            Icon={require("../../assets/clear.svg").default}
-          />
-          {!preMolt && (
-            <ActionButton
-              action={togglePreMolt}
-              color={colors.yellow}
-              Icon={require("../../assets/pre-molt.svg")}
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        behavior={Platform.OS === "ios" ? "padding" : undefined}
+        enabled
+      >
+        <ScrollView style={style.container} keyboardShouldPersistTaps="handled">
+          <View style={style.tabHeader}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <ArrowLeft />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate("History")}>
+              <List />
+            </TouchableOpacity>
+          </View>
+          <Input placeholder={"Nome da Tarântula"} />
+          <Input placeholder={"Espécie da Tarântula"} />
+          <View style={style.genderContainer}>
+            <Text style={style.title}>Gênero</Text>
+            <TouchableOpacity
+              style={[style.genderSelector, { backgroundColor: colors.pink }]}
+              onPress={() => setGender("F")}
+            >
+              {gender === "F" && <Check width={10} height={10} />}
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                style.genderSelector,
+                { backgroundColor: colors.oceanBlue },
+              ]}
+              onPress={() => setGender("M")}
+            >
+              {gender === "M" && <Check width={10} height={10} />}
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[style.genderSelector, { backgroundColor: colors.purple }]}
+              onPress={() => setGender("U")}
+            >
+              {gender === "U" && <Check width={10} height={10} />}
+            </TouchableOpacity>
+          </View>
+          <View style={style.selectorContainer}>
+            <Text style={style.title}>Ecdises</Text>
+            <TouchableOpacity
+              style={style.selector}
+              onPress={() => handleShowPicker(moltRef)}
+            >
+              <Text style={style.title}>{molts}</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={style.selectorContainer}>
+            <Text style={style.selectorTitle}>Ciclo de alimentação</Text>
+            <TouchableOpacity
+              style={style.selector}
+              onPress={() => handleShowPicker(feedingDaysPickerRef)}
+            >
+              <Text style={style.title}>{feedingDays}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={style.selector}
+              onPress={() => handleShowPicker(feedingCiclePickerRef)}
+            >
+              <Text style={style.title}>{feedingCicle}</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={style.selectorContainer}>
+            <Text style={style.selectorTitle}>Ciclo de irrigação</Text>
+            <TouchableOpacity
+              style={style.selector}
+              onPress={() => handleShowPicker(wateringDaysPickerRef)}
+            >
+              <Text style={style.title}>{wateringDays}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={style.selector}
+              onPress={() => handleShowPicker(wateringCiclePickerRef)}
+            >
+              <Text style={style.title}>{wateringCicle}</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={style.selectorContainer}>
+            <Text style={style.selectorTitle}>Ciclo de limpeza</Text>
+            <TouchableOpacity
+              style={style.selector}
+              onPress={() => handleShowPicker(cleaningDaysPickerRef)}
+            >
+              <Text style={style.title}>{cleaningDays}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={style.selector}
+              onPress={() => handleShowPicker(cleaningCiclePickerRef)}
+            >
+              <Text style={style.title}>{cleaningCicle}</Text>
+            </TouchableOpacity>
+          </View>
+          <Text style={style.notesTitle}>Anotações</Text>
+          <View style={style.notesContainer}>
+            <TextInput
+              style={style.notesTextArea}
+              underlineColorAndroid="transparent"
+              placeholder="Escreve suas anotações..."
+              placeholderTextColor={colors.icon}
+              value={notes}
+              multiline
+              numberOfLines={10}
+              onChangeText={(text) => setNotes(text)}
             />
-          )}
-          {preMolt && (
+          </View>
+          <Separator />
+          <ScrollView style={style.buttonList} horizontal>
             <ActionButton
-              action={togglePreMolt}
-              color={colors.green}
-              Icon={require("../../assets/spider-icon.svg")}
+              action={handleAction}
+              color={colors.orange}
+              Icon={require("../../assets/hungry.svg").default}
             />
-          )}
+            <ActionButton
+              action={handleAction}
+              color={colors.blue}
+              Icon={require("../../assets/water.svg").default}
+            />
+            <ActionButton
+              action={handleAction}
+              color={colors.red}
+              Icon={require("../../assets/clear.svg").default}
+            />
+            {!preMolt && (
+              <ActionButton
+                action={togglePreMolt}
+                color={colors.yellow}
+                Icon={require("../../assets/pre-molt.svg").default}
+              />
+            )}
+            {preMolt && (
+              <ActionButton
+                action={togglePreMolt}
+                color={colors.green}
+                Icon={require("../../assets/spider-icon.svg").default}
+              />
+            )}
+          </ScrollView>
         </ScrollView>
-      </ScrollView>
+      </KeyboardAvoidingView>
       <>
         <ReactNativePickerModule
           pickerRef={moltRef}

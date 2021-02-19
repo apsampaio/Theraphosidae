@@ -21,19 +21,19 @@ const HistoryCard: React.FC<HistoryCardDTO> = ({ title, date, id }) => {
   const [iconColor, setIconColor] = useState("#FFF");
 
   useEffect(() => {
-    if (id === 0) {
+    if (title === "Alimentou") {
       setIconColor(colors.orange);
     }
-    if (id === 1) {
+    if (title === "Irrigou") {
       setIconColor(colors.blue);
     }
-    if (id === 2) {
+    if (title === "Limpou") {
       setIconColor(colors.red);
     }
-    if (id === 3) {
+    if (title === "Iniciou Ecdise") {
       setIconColor(colors.yellow);
     }
-    if (id === 4) {
+    if (title === "Finalizou Ecdise") {
       setIconColor(colors.green);
     }
   }, []);

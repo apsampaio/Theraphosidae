@@ -56,7 +56,7 @@ const History: React.FC = () => {
           <Trash />
         </TouchableOpacity>
       </View>
-      {data.map(({ date, id, title }, index) => (
+      {data.map(({ date, title, id }, index) => (
         <HistoryCard id={id} key={index} date={date} title={title} />
       ))}
     </ScrollView>
