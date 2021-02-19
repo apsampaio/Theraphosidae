@@ -8,12 +8,6 @@ import Routes from "./routes";
 import colors from "./styles/colors";
 
 const App: React.FC = () => {
-  useEffect(() => {
-    Realm.open({}).then((realm) => {
-      console.log("Realm is located at: " + realm.path);
-    });
-  });
-
   return (
     <NavigationContainer>
       <StatusBar barStyle="light-content" backgroundColor={colors.background} />
