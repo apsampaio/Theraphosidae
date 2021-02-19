@@ -1,16 +1,17 @@
 import React from "react";
-import { TouchableOpacity, Text } from "react-native";
-import Hungry from "../../assets/hungry.svg";
+import { TouchableOpacity } from "react-native";
 
 import style from "./style";
 
 interface ActionButtonDTO {
   color: string;
   action(): void;
+  Icon: any;
 }
 
 const ActionButton: React.FC<ActionButtonDTO> = ({
   color,
+  Icon,
   children,
   action,
 }) => {
@@ -23,7 +24,7 @@ const ActionButton: React.FC<ActionButtonDTO> = ({
       style={[style.container, { backgroundColor: color }]}
       onPress={handleAction}
     >
-      {children}
+      <Icon />
     </TouchableOpacity>
   );
 };

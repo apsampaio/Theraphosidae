@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useRef,
-  RefObject,
-  useCallback,
-  useEffect,
-} from "react";
+import React, { useState, useRef, RefObject, useCallback } from "react";
 import {
   View,
   TouchableOpacity,
@@ -20,12 +14,6 @@ import ArrowLeft from "../../assets/arrow-left.svg";
 import List from "../../assets/list.svg";
 import Check from "../../assets/check.svg";
 
-import Hungry from "../../assets/hungry.svg";
-import Water from "../../assets/water.svg";
-import Clear from "../../assets/clear.svg";
-import PreMolt from "../../assets/pre-molt.svg";
-import SpiderIcon from "../../assets/spider-icon.svg";
-
 import Input from "../../components/Input";
 import Separator from "../../components/Separator";
 import ActionButton from "../../components/ActionButton";
@@ -38,8 +26,6 @@ import {
   CicleDayPickerData,
   CiclePickerData,
 } from "../../data/PickerData";
-
-import { useDrawer } from "../../hooks/Drawer";
 
 const Tarantula: React.FC = () => {
   const navigation = useNavigation();
@@ -191,24 +177,34 @@ const Tarantula: React.FC = () => {
         </View>
         <Separator />
         <ScrollView style={style.buttonList} horizontal>
-          <ActionButton action={handleAction} color={colors.orange}>
-            <Hungry />
-          </ActionButton>
-          <ActionButton action={handleAction} color={colors.blue}>
-            <Water />
-          </ActionButton>
-          <ActionButton action={handleAction} color={colors.red}>
-            <Clear />
-          </ActionButton>
+          <ActionButton
+            action={handleAction}
+            color={colors.orange}
+            Icon={require("../../assets/hungry.svg").default}
+          />
+          <ActionButton
+            action={handleAction}
+            color={colors.blue}
+            Icon={require("../../assets/water.svg").default}
+          />
+          <ActionButton
+            action={handleAction}
+            color={colors.red}
+            Icon={require("../../assets/clear.svg").default}
+          />
           {!preMolt && (
-            <ActionButton action={togglePreMolt} color={colors.yellow}>
-              <PreMolt />
-            </ActionButton>
+            <ActionButton
+              action={togglePreMolt}
+              color={colors.yellow}
+              Icon={require("../../assets/pre-molt.svg")}
+            />
           )}
           {preMolt && (
-            <ActionButton action={togglePreMolt} color={colors.green}>
-              <SpiderIcon />
-            </ActionButton>
+            <ActionButton
+              action={togglePreMolt}
+              color={colors.green}
+              Icon={require("../../assets/spider-icon.svg")}
+            />
           )}
         </ScrollView>
       </ScrollView>
