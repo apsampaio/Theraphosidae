@@ -13,10 +13,10 @@ const cardListData = ["1", "2", "3", "4", "5"];
 const CardList: React.FC = () => {
   const handleCreateNewTarantula = useCallback(async () => {}, []);
   const [tarantulas, setTarantulas] = useState<TarantulaSchema[]>([]);
-  const tarantulaService = new Tarantula();
 
   useEffect(() => {
     const listTarantulas = async () => {
+      const tarantulaService = new Tarantula();
       const data = await tarantulaService.list();
       setTarantulas(data);
     };
@@ -32,8 +32,8 @@ const CardList: React.FC = () => {
           <Text style={style.button}>Adicionar Tarântula +</Text>
         </TouchableOpacity>
       </View>
-      {cardListData.map((card) => (
-        <Card key={card} />
+      {tarantulas.map((item) => (
+        <Card key={item.id} />
       ))}
     </View>
   );

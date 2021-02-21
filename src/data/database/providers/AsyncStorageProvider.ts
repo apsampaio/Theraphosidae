@@ -51,7 +51,7 @@ export default class AsyncStorageProvider {
   public async list({ key }: listDTO) {
     try {
       const storaged = await AsyncStorage.getItem(key);
-      if (!storaged) return;
+      if (!storaged) return [];
       return JSON.parse(storaged);
     } catch (e) {
       // SAVING ERROR
