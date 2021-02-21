@@ -14,6 +14,10 @@ interface listDTO {
   key: string;
 }
 
+interface initDTO {
+  keys: string[];
+}
+
 interface parsedData {
   id: string;
 }
@@ -56,5 +60,18 @@ export default class AsyncStorageProvider {
     } catch (e) {
       // SAVING ERROR
     }
+  }
+
+  public async init({ keys }: initDTO) {
+    keys.map(async (key) => {
+      try {
+        const exist = await AsyncStorage.getItem(key);
+        if (!exist) {
+          await AsyncStorage.setItem(key, JSON.stringify([]));
+        }
+      } catch (e) {
+        // SAVING ERROR
+      }
+    });
   }
 }

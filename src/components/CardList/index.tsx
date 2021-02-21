@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { TouchableOpacity, View, Text } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import Tarantula, {
   TarantulaSchema,
@@ -8,10 +9,14 @@ import Tarantula, {
 import Card from "../../components/Card";
 import style from "./style";
 
-const cardListData = ["1", "2", "3", "4", "5"];
-
 const CardList: React.FC = () => {
-  const handleCreateNewTarantula = useCallback(async () => {}, []);
+  const navigation = useNavigation();
+
+  const handleCreateNewTarantula = useCallback(async () => {
+    const tarantulaService = new Tarantula();
+    const { id } = await tarantulaService.create();
+    navigation.navigate("Tarantula");
+  }, []);
   const [tarantulas, setTarantulas] = useState<TarantulaSchema[]>([]);
 
   useEffect(() => {
@@ -22,7 +27,7 @@ const CardList: React.FC = () => {
     };
 
     listTarantulas();
-  }, []);
+  }, [tarantulas]);
 
   return (
     <View style={style.container}>
