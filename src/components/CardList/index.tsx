@@ -14,8 +14,8 @@ const CardList: React.FC = () => {
 
   const handleCreateNewTarantula = useCallback(async () => {
     const tarantulaService = new Tarantula();
-    const { id } = await tarantulaService.create();
-    navigation.navigate("Tarantula");
+    const tarantulaData = await tarantulaService.create();
+    navigation.navigate("Tarantula", { data: tarantulaData });
   }, []);
   const [tarantulas, setTarantulas] = useState<TarantulaSchema[]>([]);
 
@@ -38,7 +38,7 @@ const CardList: React.FC = () => {
         </TouchableOpacity>
       </View>
       {tarantulas.map((item) => (
-        <Card key={item.id} />
+        <Card data={item} key={item.id} />
       ))}
     </View>
   );

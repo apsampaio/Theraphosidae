@@ -11,6 +11,7 @@ import {
 
 import { useNavigation } from "@react-navigation/native";
 import ReactNativePickerModule from "react-native-picker-module";
+import { TarantulaSchema } from "../../data/database/entities/Tarantula";
 
 import ArrowLeft from "../../assets/arrow-left.svg";
 import List from "../../assets/list.svg";
@@ -23,14 +24,24 @@ import ActionButton from "../../components/ActionButton";
 import colors from "../../styles/colors";
 import style from "./style";
 
+interface RouteDTO {
+  route: {
+    params: {
+      data: TarantulaSchema;
+    };
+  };
+}
+
 import {
   MoltPickerData,
   CicleDayPickerData,
   CiclePickerData,
 } from "../../data/PickerData";
 
-const Tarantula: React.FC = () => {
+const Tarantula: React.FC<RouteDTO> = ({ route }) => {
   const navigation = useNavigation();
+  const { data } = route.params;
+  console.log(data);
 
   // Molt Values
   const moltRef = useRef<ReactNativePickerModule>(null);

@@ -2,15 +2,20 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
+import { TarantulaSchema } from "../../data/database/entities/Tarantula";
 import Icon from "../../assets/spider-icon.svg";
 
 import style from "./style";
 
-const Card: React.FC = () => {
+interface CardDTO {
+  data: TarantulaSchema;
+}
+
+const Card: React.FC<CardDTO> = ({ data }) => {
   const navigation = useNavigation();
 
   const handleNavigateToProfile = () => {
-    navigation.navigate("Tarantula");
+    navigation.navigate("Tarantula", { data });
   };
 
   return (
