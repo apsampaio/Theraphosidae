@@ -10,6 +10,10 @@ interface removeDTO {
   id: string;
 }
 
+interface listDTO {
+  key: string;
+}
+
 interface parsedData {
   id: string;
 }
@@ -25,6 +29,7 @@ export default class AsyncStorageProvider {
       );
       const newData = [...filteredData, data];
       await AsyncStorage.setItem(key, JSON.stringify(newData));
+      return newData;
     } catch (e) {
       // SAVING ERROR
     }
@@ -37,6 +42,17 @@ export default class AsyncStorageProvider {
       const storagedData = JSON.parse(storaged);
       const newData = storagedData.filter((data: parsedData) => data.id !== id);
       await AsyncStorage.setItem(key, JSON.stringify(newData));
+      return newData;
+    } catch (e) {
+      // SAVING ERROR
+    }
+  }
+
+  public async list({ key }: listDTO) {
+    try {
+      const storaged = await AsyncStorage.getItem(key);
+      if (!storaged) return;
+      return JSON.parse(storaged);
     } catch (e) {
       // SAVING ERROR
     }
