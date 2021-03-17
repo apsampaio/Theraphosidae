@@ -1498,6 +1498,11 @@
     "@types/react-native" "*"
     "@types/xdate" "*"
 
+"@types/react-native-push-notification@^7.0.2":
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/@types/react-native-push-notification/-/react-native-push-notification-7.0.2.tgz#9d4ae423229700132a7ec7b4ae1162325ab58e53"
+  integrity sha512-LDQgf5Pf5waC5kVGvHY4ZgY+oJ1wd2MHRUMgfkx4WjSygK/Cg0fr9LQSioV38VMt1IeLHxQqV6BDBAqL6VKEQg==
+
 "@types/react-native@*", "@types/react-native@^0.63.2":
   version "0.63.37"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.63.37.tgz#c43df90c9d3cc082a97a49a53e989de26cb8ab45"
@@ -6165,6 +6170,11 @@ react-native-picker-module@^2.0.31:
   version "2.0.31"
   resolved "https://registry.yarnpkg.com/react-native-picker-module/-/react-native-picker-module-2.0.31.tgz#529514837d2325f024c39f8f9f8776d9041b6183"
   integrity sha512-AoyYWDY6am3VImDD6li7EA6CGuiPvkGAG2k98mYE2gGPABNrb1Jf7ohmQBSXcyF8T7YDcgMwb1kepH5qvwiOaA==
+
+react-native-push-notification@^7.2.2:
+  version "7.2.2"
+  resolved "https://registry.yarnpkg.com/react-native-push-notification/-/react-native-push-notification-7.2.2.tgz#19cd567744616d0347097eea5ce9aa49dec4a975"
+  integrity sha512-c/APy4vvhzYBh5ysGn/hMxsWMeOI7rxHeMz40gebo3UyTs39SlSJuG7awU4Q/ezNQ8jNye2+CudG8TVzyzdo1A==
 
 react-native-reanimated@^1.13.2:
   version "1.13.2"

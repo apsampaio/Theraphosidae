@@ -21,7 +21,7 @@ const Card: React.FC<CardDTO> = ({ data }) => {
   return (
     <TouchableOpacity style={style.container} onPress={handleNavigateToProfile}>
       <View style={style.status}>
-        <Icon key="teste" />
+        <Icon />
       </View>
       <View>
         <View style={style.header}>

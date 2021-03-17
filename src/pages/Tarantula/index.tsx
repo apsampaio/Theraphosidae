@@ -41,7 +41,6 @@ import {
 const Tarantula: React.FC<RouteDTO> = ({ route }) => {
   const navigation = useNavigation();
   const { data } = route.params;
-  console.log(data);
 
   // Molt Values
   const moltRef = useRef<ReactNativePickerModule>(null);
