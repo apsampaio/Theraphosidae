@@ -2,9 +2,13 @@ import { StyleSheet } from "react-native";
 
 import colors from "../../styles/colors";
 
+import Constants from "expo-constants";
+
 const style = StyleSheet.create({
   container: {
-    backgroundColor: "#1D1D1F",
+    flex: 1,
+    backgroundColor: colors.background,
+    paddingTop: Constants.statusBarHeight,
   },
 });
 

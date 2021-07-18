@@ -6,8 +6,9 @@ import { useNavigation } from "@react-navigation/native";
 //   TarantulaSchema,
 // } from "../../data/database/entities/Tarantula";
 
-import Card from "../../components/Card";
+import { Card } from "../../components/Card";
 import style from "./style";
+import { FlatList } from "react-native-gesture-handler";
 
 const CardList: React.FC = () => {
   const navigation = useNavigation();
@@ -51,9 +52,13 @@ const CardList: React.FC = () => {
           <Text style={style.button}>Adicionar Tarântula +</Text>
         </TouchableOpacity>
       </View>
-      {tarantulas.map((item) => (
-        <Card data={item} key={item.id} />
-      ))}
+      <FlatList
+        data={tarantulas}
+        renderItem={({ item }) => <Card data={item} key={item.id} />}
+        keyExtractor={(item) => item.id}
+        contentContainerStyle={{ paddingBottom: 69 }}
+        showsVerticalScrollIndicator={false}
+      />
     </View>
   );
 };

@@ -3,9 +3,7 @@ import { StyleSheet } from "react-native";
 import colors from "../../styles/colors";
 
 const style = StyleSheet.create({
-  container: {
-    paddingBottom: 32,
-  },
+  container: {},
 
   title: {
     color: colors.title,
