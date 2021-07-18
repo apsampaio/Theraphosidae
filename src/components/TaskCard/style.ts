@@ -4,7 +4,7 @@ import colors from "../../styles/colors";
 
 const style = StyleSheet.create({
   container: {
-    width: 132,
+    width: 124,
     height: 64,
     borderRadius: 4,
     backgroundColor: colors.box,

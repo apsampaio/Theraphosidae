@@ -3,7 +3,7 @@ import React from "react";
 import { ScrollView } from "react-native";
 import style from "./style";
 
-const Toca: React.FC = () => {
+const Blog: React.FC = () => {
   return (
     <ScrollView
       style={style.container}
@@ -12,4 +12,4 @@ const Toca: React.FC = () => {
   );
 };
 
-export default Toca;
+export { Blog };

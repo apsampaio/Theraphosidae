@@ -15,17 +15,22 @@ const style = StyleSheet.create({
     marginTop: 24,
   },
 
+  icon: {
+    paddingRight: 16,
+  },
+
   title: {
     fontSize: 18,
     color: colors.title,
-    marginLeft: 16,
   },
 
   description: {
     fontSize: 14,
     color: colors.icon,
-    marginLeft: 16,
-    marginTop: 4,
+  },
+
+  chevron: {
+    marginLeft: "auto",
   },
 });
 

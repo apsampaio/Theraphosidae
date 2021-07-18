@@ -1,38 +1,52 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  TouchableOpacityProps,
+} from "react-native";
+
+import { Feather } from "@expo/vector-icons";
 
 import style from "./style";
+import colors from "../../styles/colors";
 
-interface MenuButton {
+type iMenuButton = TouchableOpacityProps & {
   title: string;
   description: string;
-  navigateTo: string;
-  navigation: Navigation;
-}
+  icon: keyof typeof Feather.glyphMap;
+  redirect?: boolean;
+};
 
 interface Navigation {
   navigate: (screen: string) => {};
 }
 
-const MenuButton: React.FC<MenuButton> = ({
+const MenuButton: React.FC<iMenuButton> = ({
   title,
   description,
-  navigateTo,
-  navigation,
-  children,
+  icon,
+  redirect = false,
+  ...rest
 }) => {
   return (
-    <TouchableOpacity
-      style={style.container}
-      onPress={() => navigation.navigate(navigateTo)}
-    >
-      {children}
+    <TouchableOpacity style={style.container} {...rest}>
+      <Feather name={icon} color={colors.title} size={24} style={style.icon} />
       <View>
         <Text style={style.title}>{title}</Text>
         <Text style={style.description}>{description}</Text>
       </View>
+      {redirect && (
+        <Feather
+          name="chevron-right"
+          color={colors.icon}
+          size={24}
+          style={style.chevron}
+        />
+      )}
     </TouchableOpacity>
   );
 };
 
-export default MenuButton;
+export { MenuButton };

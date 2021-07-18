@@ -6,30 +6,8 @@ import { Feather } from "@expo/vector-icons";
 import colors from "../styles/colors";
 
 import { Home } from "../pages/Home";
-
-function BlogScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Blog!</Text>
-    </View>
-  );
-}
-
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Home!</Text>
-    </View>
-  );
-}
-
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
+import { Menu } from "../pages/Menu";
+import { Blog } from "../pages/Blog";
 
 const Tab = createBottomTabNavigator();
 
@@ -60,9 +38,9 @@ const Routes: React.FC = () => {
         },
       })}
     >
-      <Tab.Screen name="Blog" component={BlogScreen} />
+      <Tab.Screen name="Blog" component={Blog} />
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
+      <Tab.Screen name="Menu" component={Menu} />
     </Tab.Navigator>
   );
 };
