@@ -23,6 +23,30 @@ const style = StyleSheet.create({
     color: colors.title,
     paddingTop: Constants.statusBarHeight,
   },
+
+  banner: {
+    width: "100%",
+    height: 234,
+  },
+
+  bannerContent: {
+    flex: 1,
+    justifyContent: "flex-end",
+    paddingHorizontal: 24,
+    marginBottom: 30,
+  },
+
+  bannerTitle: {
+    fontSize: 28,
+    color: colors.title,
+    fontWeight: "700",
+  },
+
+  bannerSubtitle: {
+    fontSize: 13,
+    color: colors.title,
+    lineHeight: 21,
+  },
 });
 
 export default style;

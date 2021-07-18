@@ -17,7 +17,7 @@ const Card: React.FC<CardDTO> = ({ data }) => {
   const navigation = useNavigation();
 
   const handleNavigateToProfile = () => {
-    // navigation.navigate("Tarantula", { data });
+    console.log("navigate to tarantula profile");
   };
 
   return (
@@ -32,14 +32,12 @@ const Card: React.FC<CardDTO> = ({ data }) => {
         </View>
         <Text style={style.species}>Acanthoscurria Geniculata</Text>
       </View>
-      <View style={style.moreIcon}>
-        <Feather
-          name="more-vertical"
-          size={24}
-          color={colors.icon}
-          onPress={() => console.log("More")}
-        />
-      </View>
+      <TouchableOpacity
+        style={style.moreIcon}
+        onPress={() => console.log("More")}
+      >
+        <Feather name="more-vertical" size={24} color={colors.icon} />
+      </TouchableOpacity>
     </TouchableOpacity>
   );
 };

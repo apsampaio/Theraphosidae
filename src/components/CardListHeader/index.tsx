@@ -10,8 +10,8 @@ const CardListHeader: React.FC = () => {
   return (
     <View style={style.header}>
       <Text style={style.title}>Suas Tarântulas</Text>
-      <TouchableOpacity onPress={() => {}}>
-        <Feather name="plus-square" size={24} color={colors.title} />
+      <TouchableOpacity onPress={() => console.log("Create New Card")}>
+        <Feather name="plus-square" size={24} color={colors.orange} />
       </TouchableOpacity>
     </View>
   );
