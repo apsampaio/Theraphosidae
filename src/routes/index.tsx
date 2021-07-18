@@ -3,8 +3,9 @@ import { Text, View, StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { Feather } from "@expo/vector-icons";
-
 import colors from "../styles/colors";
+
+import { Home } from "../pages/Home";
 
 function BlogScreen() {
   return (
@@ -38,12 +39,12 @@ const Routes: React.FC = () => {
       initialRouteName="Home"
       tabBarOptions={{
         activeTintColor: colors.title,
-        inactiveTintColor: colors.icon,
+        inactiveTintColor: colors.box,
         showLabel: false,
         keyboardHidesTabBar: true,
         style: {
           backgroundColor: colors.background,
-          borderTopColor: colors.purple,
+          borderTopColor: colors.title,
           borderTopWidth: StyleSheet.hairlineWidth,
         },
       }}
@@ -60,7 +61,7 @@ const Routes: React.FC = () => {
       })}
     >
       <Tab.Screen name="Blog" component={BlogScreen} />
-      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
   );

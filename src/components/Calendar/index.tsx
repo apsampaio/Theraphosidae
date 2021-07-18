@@ -27,8 +27,8 @@ const CalendarComponent: React.FC = () => {
 
     const markedObject = {
       [todayDate]: {
-        dots: [feed, water, rehouse],
         selected: true,
+        selectedColor: colors.boxForeground,
       },
     };
     return markedObject;
@@ -36,6 +36,8 @@ const CalendarComponent: React.FC = () => {
 
   const handleDate = {
     minDate: () => {
+      // FIXME To Decice between month or current date
+      // return todayDate;
       return format(new Date(), "yyyy-MM-01");
     },
     maxDate: () => {
@@ -44,6 +46,7 @@ const CalendarComponent: React.FC = () => {
   };
 
   LocaleConfig.locales["pt"] = {
+    today: "Hoje",
     monthNames: [
       "Janeiro",
       "Fevereiro",
@@ -88,12 +91,12 @@ const CalendarComponent: React.FC = () => {
             selected: sCalendar.todayDate,
           },
 
-          calendarBackground: "#1D1D1F",
-          textSectionTitleColor: "#FFF",
-          todayTextColor: "#FFF",
-          dayTextColor: "#FFF",
-          monthTextColor: "#FFF",
-          textDisabledColor: "#9B98A6",
+          calendarBackground: colors.background,
+          textSectionTitleColor: colors.title,
+          todayTextColor: colors.title,
+          dayTextColor: colors.title,
+          monthTextColor: colors.title,
+          textDisabledColor: colors.icon,
           textDayFontSize: 16,
           textMonthFontSize: 16,
           textDayHeaderFontSize: 16,

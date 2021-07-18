@@ -16,7 +16,9 @@ const App: React.FC = () => {
         backgroundColor="transparent"
         translucent
       />
-      <View style={{ flex: 1, backgroundColor: colors.background }}>
+      <View
+        style={{ flex: 1, backgroundColor: colors.background, paddingTop: 24 }}
+      >
         <Routes />
       </View>
     </NavigationContainer>

@@ -50,7 +50,6 @@ const sCalendar = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
 
-    borderColor: colors.purple,
     borderWidth: 2,
     borderRadius: 4,
 
