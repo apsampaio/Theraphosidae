@@ -6,7 +6,7 @@ import style from "./style";
 import CalendarComponent from "../../components/Calendar";
 import Separator from "../../components/Separator";
 import TaskList from "../../components/TaskList";
-import CardList from "../../components/CardList";
+import { CardListHeader } from "../../components/CardListHeader";
 
 import { Card } from "../../components/Card";
 
@@ -65,6 +65,7 @@ const Home: React.FC = () => {
             <Separator />
             <TaskList />
             <Separator />
+            <CardListHeader />
           </>
         )}
         contentContainerStyle={{ paddingBottom: 32 }}
