@@ -2,11 +2,12 @@ import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
-// import { TarantulaSchema } from "../../data/database/entities/Tarantula";
-
 import SpiderIcon from "../../assets/spider.png";
 
+import { Feather } from "@expo/vector-icons";
+
 import style from "./style";
+import colors from "../../styles/colors";
 
 interface CardDTO {
   data: any;
@@ -30,6 +31,14 @@ const Card: React.FC<CardDTO> = ({ data }) => {
           <View style={style.gender} />
         </View>
         <Text style={style.species}>Acanthoscurria Geniculata</Text>
+      </View>
+      <View style={style.moreIcon}>
+        <Feather
+          name="more-vertical"
+          size={24}
+          color={colors.icon}
+          onPress={() => console.log("More")}
+        />
       </View>
     </TouchableOpacity>
   );

@@ -10,6 +10,7 @@ const style = StyleSheet.create({
     borderRadius: 4,
 
     flexDirection: "row",
+    alignItems: "center",
 
     marginTop: 24,
   },
@@ -51,6 +52,14 @@ const style = StyleSheet.create({
     fontSize: 14,
     marginTop: 8,
     marginLeft: 8,
+  },
+
+  moreIcon: {
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: "auto",
+    paddingHorizontal: 8,
   },
 });
 
