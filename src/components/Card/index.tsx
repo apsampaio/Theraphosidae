@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 import { TarantulaSchema } from "../../data/database/entities/Tarantula";
-import Icon from "../../assets/spider-icon.svg";
+
+import SpiderIcon from "../../assets/spider.png";
 
 import style from "./style";
 
@@ -21,7 +22,7 @@ const Card: React.FC<CardDTO> = ({ data }) => {
   return (
     <TouchableOpacity style={style.container} onPress={handleNavigateToProfile}>
       <View style={style.status}>
-        <Icon />
+        <Image source={SpiderIcon} width={24} height={24} />
       </View>
       <View>
         <View style={style.header}>

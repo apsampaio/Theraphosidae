@@ -13,10 +13,10 @@ const Home: React.FC = () => {
   return (
     <ScrollView style={style.container} showsVerticalScrollIndicator={false}>
       <CalendarComponent />
-      {/* <Separator />
+      <Separator />
       <TaskList />
       <Separator />
-      <CardList /> */}
+      {/* <CardList /> */}
     </ScrollView>
   );
 };
