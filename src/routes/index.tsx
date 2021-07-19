@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
 
 import { Feather } from "@expo/vector-icons";
 import colors from "../styles/colors";
@@ -8,10 +9,12 @@ import colors from "../styles/colors";
 import { Home } from "../pages/Home";
 import { Menu } from "../pages/Menu";
 import { Blog } from "../pages/Blog";
+import { Tarantula } from "../pages/Tarantula";
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
-const Routes: React.FC = () => {
+const HomeTabs: React.FC = () => {
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -42,6 +45,15 @@ const Routes: React.FC = () => {
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Menu" component={Menu} />
     </Tab.Navigator>
+  );
+};
+
+const Routes: React.FC = () => {
+  return (
+    <Stack.Navigator headerMode="none">
+      <Stack.Screen name="Home" component={HomeTabs} />
+      <Stack.Screen name="Tarantula" component={Tarantula} />
+    </Stack.Navigator>
   );
 };
 

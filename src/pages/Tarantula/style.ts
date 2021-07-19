@@ -1,6 +1,8 @@
 import { StyleSheet } from "react-native";
 import colors from "../../styles/colors";
 
+import Constants from "expo-constants";
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.background,
@@ -9,17 +11,17 @@ const styles = StyleSheet.create({
 
   tabHeader: {
     flexDirection: "row",
-    height: 56,
     backgroundColor: colors.boxForeground,
     justifyContent: "space-between",
     alignItems: "center",
     paddingHorizontal: 16,
+
+    height: 56 + Constants.statusBarHeight,
+    width: "100%",
   },
 
   tabHeaderButton: {
-    backgroundColor: colors.boxForeground,
-    alignItems: "center",
-    justifyContent: "center",
+    paddingTop: Constants.statusBarHeight,
   },
 
   title: {

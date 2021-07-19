@@ -10,7 +10,6 @@ import {
 } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
-import ReactNativePickerModule from "react-native-picker-module";
 import { TarantulaSchema } from "../../data/database/entities/Tarantula";
 
 import ArrowLeft from "../../assets/arrow-left.svg";
@@ -38,27 +37,29 @@ import {
   CiclePickerData,
 } from "../../data/PickerData";
 
+// TODO PICKER, SQLITE EXPO
+
 const Tarantula: React.FC<RouteDTO> = ({ route }) => {
   const navigation = useNavigation();
-  const { data } = route.params;
+  // const { data } = route.params;
 
   // Molt Values
-  const moltRef = useRef<ReactNativePickerModule>(null);
+  // const moltRef = useRef<ReactNativePickerModule>(null);
   const [molts, setMolts] = useState("0");
 
-  const feedingDaysPickerRef = useRef<ReactNativePickerModule>(null);
+  // const feedingDaysPickerRef = useRef<ReactNativePickerModule>(null);
   const [feedingDays, setFeedingDays] = useState("1");
-  const feedingCiclePickerRef = useRef<ReactNativePickerModule>(null);
+  // const feedingCiclePickerRef = useRef<ReactNativePickerModule>(null);
   const [feedingCicle, setFeedingCicle] = useState("Dias");
 
-  const wateringDaysPickerRef = useRef<ReactNativePickerModule>(null);
+  // const wateringDaysPickerRef = useRef<ReactNativePickerModule>(null);
   const [wateringDays, setWateringDays] = useState("1");
-  const wateringCiclePickerRef = useRef<ReactNativePickerModule>(null);
+  // const wateringCiclePickerRef = useRef<ReactNativePickerModule>(null);
   const [wateringCicle, setWateringCicle] = useState("Dias");
 
-  const cleaningDaysPickerRef = useRef<ReactNativePickerModule>(null);
+  // const cleaningDaysPickerRef = useRef<ReactNativePickerModule>(null);
   const [cleaningDays, setCleaningDays] = useState("1");
-  const cleaningCiclePickerRef = useRef<ReactNativePickerModule>(null);
+  // const cleaningCiclePickerRef = useRef<ReactNativePickerModule>(null);
   const [cleaningCicle, setCleaningCicle] = useState("Dias");
 
   const [gender, setGender] = useState("U");
@@ -75,13 +76,13 @@ const Tarantula: React.FC<RouteDTO> = ({ route }) => {
     });
   };
 
-  const handleShowPicker = useCallback(
-    (ref: RefObject<ReactNativePickerModule>) => {
-      const node = ref.current;
-      return node?.show();
-    },
-    []
-  );
+  // const {}}(
+  //   (ref: RefObject<ReactNativePickerModule>) => {
+  //     const node = ref.current;
+  //     return node?.show();
+  //   },
+  //   []
+  // );
 
   return (
     <>
@@ -92,10 +93,16 @@ const Tarantula: React.FC<RouteDTO> = ({ route }) => {
       >
         <ScrollView style={style.container} keyboardShouldPersistTaps="handled">
           <View style={style.tabHeader}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
+            <TouchableOpacity
+              onPress={() => navigation.goBack()}
+              style={style.tabHeaderButton}
+            >
               <ArrowLeft />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate("History")}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("History")}
+              style={style.tabHeaderButton}
+            >
               <List />
             </TouchableOpacity>
           </View>
@@ -127,55 +134,34 @@ const Tarantula: React.FC<RouteDTO> = ({ route }) => {
           </View>
           <View style={style.selectorContainer}>
             <Text style={style.title}>Ecdises</Text>
-            <TouchableOpacity
-              style={style.selector}
-              onPress={() => handleShowPicker(moltRef)}
-            >
+            <TouchableOpacity style={style.selector} onPress={() => {}}>
               <Text style={style.title}>{molts}</Text>
             </TouchableOpacity>
           </View>
           <View style={style.selectorContainer}>
             <Text style={style.selectorTitle}>Ciclo de alimentação</Text>
-            <TouchableOpacity
-              style={style.selector}
-              onPress={() => handleShowPicker(feedingDaysPickerRef)}
-            >
+            <TouchableOpacity style={style.selector} onPress={() => {}}>
               <Text style={style.title}>{feedingDays}</Text>
             </TouchableOpacity>
-            <TouchableOpacity
-              style={style.selector}
-              onPress={() => handleShowPicker(feedingCiclePickerRef)}
-            >
+            <TouchableOpacity style={style.selector} onPress={() => {}}>
               <Text style={style.title}>{feedingCicle}</Text>
             </TouchableOpacity>
           </View>
           <View style={style.selectorContainer}>
             <Text style={style.selectorTitle}>Ciclo de irrigação</Text>
-            <TouchableOpacity
-              style={style.selector}
-              onPress={() => handleShowPicker(wateringDaysPickerRef)}
-            >
+            <TouchableOpacity style={style.selector} onPress={() => {}}>
               <Text style={style.title}>{wateringDays}</Text>
             </TouchableOpacity>
-            <TouchableOpacity
-              style={style.selector}
-              onPress={() => handleShowPicker(wateringCiclePickerRef)}
-            >
+            <TouchableOpacity style={style.selector} onPress={() => {}}>
               <Text style={style.title}>{wateringCicle}</Text>
             </TouchableOpacity>
           </View>
           <View style={style.selectorContainer}>
             <Text style={style.selectorTitle}>Ciclo de limpeza</Text>
-            <TouchableOpacity
-              style={style.selector}
-              onPress={() => handleShowPicker(cleaningDaysPickerRef)}
-            >
+            <TouchableOpacity style={style.selector} onPress={() => {}}>
               <Text style={style.title}>{cleaningDays}</Text>
             </TouchableOpacity>
-            <TouchableOpacity
-              style={style.selector}
-              onPress={() => handleShowPicker(cleaningCiclePickerRef)}
-            >
+            <TouchableOpacity style={style.selector} onPress={() => {}}>
               <Text style={style.title}>{cleaningCicle}</Text>
             </TouchableOpacity>
           </View>
@@ -227,7 +213,7 @@ const Tarantula: React.FC<RouteDTO> = ({ route }) => {
         </ScrollView>
       </KeyboardAvoidingView>
       <>
-        <ReactNativePickerModule
+        {/* <ReactNativePickerModule
           pickerRef={moltRef}
           value={molts}
           items={MoltPickerData}
@@ -282,10 +268,10 @@ const Tarantula: React.FC<RouteDTO> = ({ route }) => {
           title={"Selecione o ciclo:"}
           selectedColor={colors.orange}
           onValueChange={setCleaningCicle}
-        />
+        /> */}
       </>
     </>
   );
 };
 
-export default Tarantula;
+export { Tarantula };

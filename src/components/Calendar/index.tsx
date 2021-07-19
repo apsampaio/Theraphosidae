@@ -27,7 +27,7 @@ const CalendarComponent: React.FC = () => {
 
     const markedObject = {
       [todayDate]: {
-        dots: [],
+        dots: [feed, water, rehouse],
         selected: true,
         selectedColor: colors.boxForeground,
       },

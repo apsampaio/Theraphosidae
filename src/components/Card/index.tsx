@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
-import SpiderIcon from "../../assets/spider.png";
+import SpiderIcon from "../../assets/spider-icon.svg";
 
 import { Feather } from "@expo/vector-icons";
 
@@ -18,12 +18,13 @@ const Card: React.FC<CardDTO> = ({ data }) => {
 
   const handleNavigateToProfile = () => {
     console.log("navigate to tarantula profile");
+    navigation.navigate("Tarantula");
   };
 
   return (
     <TouchableOpacity style={style.container} onPress={handleNavigateToProfile}>
       <View style={style.status}>
-        <Image source={SpiderIcon} width={24} height={24} />
+        <SpiderIcon width={32} height={32} />
       </View>
       <View>
         <View style={style.header}>
